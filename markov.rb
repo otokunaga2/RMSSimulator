@@ -1,16 +1,23 @@
 class Markov
-  attr_reader :current_state
-def initialize(alpha,beta,gamma,q01,q10,before_state)
-  @alpha=alpha
-  @beta=beta
-  @gamma=gamma
 
-  @q01=q01
-  @q10=q10
+  attr_reader :current_state, :q01, :q10
+def initialize(alpha,beta,gamma,initial_state)
+  @q01=alpha
+  @q10=gamma
   @q00=1-@q01
   @q11=1-@q10
   @random = Random.new(Time.now.to_i)
-  @current_state=before_state
+  @current_state=initial_state
+end
+def guard_parameter
+  if @q01 > 0.9999
+    @q01 = 0.9999
+  end
+  if @q10 > 0.9999
+    @q10 = 0.9999
+  elsif @q10 < 0
+    @q10 = 0.0001
+  end
 end
 def move_another_state()
   random=@random.rand()
