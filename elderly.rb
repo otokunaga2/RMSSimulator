@@ -1,6 +1,6 @@
 require './markov.rb'
 class Elderly < Markov
-  def initialize(alpha,beta,gamma,simulation_number,gradient)
+  def initialize(alpha,beta,gamma,simulation_number,gradient,initial_state)
     @state=[0,1]
     @simulation_number = simulation_number
     @gradient=gradient
@@ -8,7 +8,7 @@ class Elderly < Markov
     @q10=q10
     @q01=q01
     #@current_state=0
-    super(alpha,beta,gamma,q10,q01,initial_state)
+    super(alpha,beta,gamma,initial_state)
   end
   def aging(time)
     p "simulation steps #{time}"
@@ -19,7 +19,9 @@ class Elderly < Markov
     p "@q01 #{@q01}"
     @q10 = @q10 - @aging_param
     self.guard_parameter
-    p "@q01 #{@q10}"
+    p "@q10 #{@q10}"
+
+    p "state :#{self.current_state}"
   end
   
 

@@ -19,8 +19,8 @@ def guard_parameter
     @q10 = 0.0001
   end
 end
-def move_another_state()
-  random=@random.rand()
+def move_state
+  p random=@random.rand()
   state = @current_state
   case state
   when 0 then
