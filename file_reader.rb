@@ -23,7 +23,7 @@ class SettingReader
               p component["number"]
               @stored_hash[keyword] = component["number"]
            else
-             raise Exception
+             #raise Exception
         end
       end
 

@@ -4,18 +4,18 @@ class Markov
 def initialize(alpha,beta,gamma,initial_state)
   @q01=alpha
   @q10=gamma
-  @q00=1-@q01
-  @q11=1-@q10
+  #@q00=1-@q01
+  #@q11=1-@q10
   @random = Random.new(Time.now.to_i)
   @current_state=initial_state
 end
 def guard_parameter
-  if @q01 > 0.9999
+  if @q01.to_f > 0.9999
     @q01 = 0.9999
   end
-  if @q10 > 0.9999
+  if @q10.to_f > 0.9999
     @q10 = 0.9999
-  elsif @q10 < 0
+  elsif @q10.to_f < 0
     @q10 = 0.0001
   end
 end

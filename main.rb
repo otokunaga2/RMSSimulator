@@ -1,7 +1,9 @@
 require './elderly.rb'
 require './file_reader.rb'
+require './output-writer.rb'
 class Main
   attr_accessor :time
+  include OutputWriter
   def initialize
     @file_read_instance = SettingReader.new
     @file_read_instance.store_to_hash
@@ -21,9 +23,11 @@ class Main
 
   def simulate
     #get agingn
+    self.create_file
     @time=@time+1
     @elderly_instance.aging(@time)
     @elderly_instance.move_state
+
     #p "state: #{@elderly_instance.current_state}"
   end 
   
@@ -32,6 +36,7 @@ class Main
 end
 
 main_instance_val = Main.new
+main_instance_val.create_file
 for i in 0..100 do 
   main_instance_val.simulate
 end
