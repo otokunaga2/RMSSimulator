@@ -9,13 +9,12 @@ class Main
   end
 
   def simulate
+    @time=@time+1
+    p "time is : #{@time}"
   end 
 
   def get_rand
     p @random_instance.rand()
-  end
-  def aging
-    @time = @time+1
   end
   
 
