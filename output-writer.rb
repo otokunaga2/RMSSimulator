@@ -4,18 +4,16 @@ module OutputWriter
   attr_accessor :cursor_file
   @cursor_file = nil
   @target_name =nil
-  def set_file_name(target_name)
-    @target_name = target_name
-  end
-  def create_file
+  def create_file(target_name)
     now = Time.now.strftime("%Y-%m-%d-%S")
     file_name =  "#{now}.txt"
-    FileUtils.touch(@target_name << "/" << file_name)
-    p "exe"
-    @cursor_file=@target_name 
+    unless @target_name != nil then
+      @target_name = target_name << "/" << file_name
+    end
+    FileUtils.touch(@target_name)
   end
   def write_to_file(msg)
-    File.open(@cursor_file, "w") do |f|
+    File.open(@target_name, "w") do |f|
       f.write msg
     end
   end

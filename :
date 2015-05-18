@@ -22,7 +22,7 @@ class Main
 
   def simulate
     #get agingn
-    self.create_file('output')
+    self.create_file
     @time=@time+1
     @elderly_instance.aging(@time)
     @elderly_instance.move_state
@@ -32,7 +32,6 @@ end
 
 main_instance_val = Main.new
 
-99.times do
-  main_instance_val.simulate
-end
+main_instance_val.set_file_name("output")
+main_instance_val.simulate
 

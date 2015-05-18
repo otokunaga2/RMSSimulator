@@ -15,14 +15,14 @@ class Elderly < Markov
     #p "simulatio time #{time.to_f/@simulation_number.to_f}"
     @aging_param = @aging_param.to_f + @gradient.to_f*(time.to_f/@simulation_number.to_f)**2
     @q01 = @q01.to_f + @aging_param.to_f
+    # save parameter between 0 and 1
     self.guard_parameter
     p "@q01 #{@q01}"
     @q10 = @q10.to_f - @aging_param
+    # save parameter between 0 and 1
     self.guard_parameter
     self.move_state
     p "currnet_state is #{ self.current_state}"
   end
-  
-
 end
 
