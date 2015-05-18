@@ -2,7 +2,7 @@ require './elderly.rb'
 require './file_reader.rb'
 require './output-writer.rb'
 class Main
-  attr_accessor :time
+  attr_accessor :time, :elderly
   #create_file,output_file is defined
   include OutputWriter
   def initialize
@@ -14,7 +14,8 @@ class Main
     simulation_number = @file_read_instance.stored_hash["simulation_number"]
     gradient = @file_read_instance.stored_hash["gradient"]
     firststate = @file_read_instance.stored_hash["firststate"]
-    @elderly_instance = Elderly.new(alpha,beta,gamma,simulation_number,gradient,firststate)
+    firststate = 0
+    @elderly = Elderly.new(alpha,beta,gamma,simulation_number,gradient,firststate)
     @time = 0
     #seed set as time
     @random_instance = Random.new(1)
@@ -24,10 +25,12 @@ class Main
     #get agingn
     self.create_file('output')
     @time=@time+1
-    @elderly_instance.aging(@time)
-    @elderly_instance.current_state = @elderly_instance.move_state
-    p @elderly_instance.current_state
-    self.write_to_file("eldery state:"<<@elderly_instance.current_state)
+    @elderly.aging(@time)
+    @elderly.move_state(0)
+    if @elderly.current_state == nil
+    else
+      self.write_to_file("eldery state:"<<@elderly.current_state)
+    end
   end 
 end
 

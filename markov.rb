@@ -1,6 +1,6 @@
 class Markov
   attr_accessor :current_state, :q01, :q10
-  def initialize(alpha,beta,gamma,initial_state)
+  def initialize(alpha,beta,gamma,initial_state=0)
     @q01=alpha
     @q10=gamma
     #@q00=1-@q01
@@ -19,17 +19,18 @@ class Markov
     end
   end
   def move_state(random=@random.rand())
+    if @current_state = nil
+      raise Exception
+    end
     #p random=@random.rand()
-    p "random val is " << random.to_s
-    p "q01" << @q01.to_s
-    p "q10" << @q10.to_s
-
     case @current_state
       when 0 then
         if random.to_f < @q01.to_f then
           @current_state=1
+          p "upper"
         else
           @current_state=0
+          p "downner"
         end
       when 1 then
         if random.to_f < @q10.to_f
