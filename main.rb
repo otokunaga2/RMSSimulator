@@ -25,7 +25,8 @@ class Main
     self.create_file('output')
     @time=@time+1
     @elderly_instance.aging(@time)
-    @elderly_instance.move_state
+    @elderly_instance.current_state = @elderly_instance.move_state
+    p @elderly_instance.current_state
     self.write_to_file("eldery state:"<<@elderly_instance.current_state)
   end 
 end
@@ -35,4 +36,3 @@ main_instance_val = Main.new
 99.times do
   main_instance_val.simulate
 end
-

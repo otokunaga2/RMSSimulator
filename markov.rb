@@ -1,5 +1,5 @@
 class Markov
-  attr_reader :current_state, :q01, :q10
+  attr_accessor :current_state, :q01, :q10
   def initialize(alpha,beta,gamma,initial_state)
     @q01=alpha
     @q10=gamma
@@ -18,24 +18,27 @@ class Markov
       @q10 = 0.0001
     end
   end
-  def move_state
-    p random=@random.rand()
-    state = @current_state
-    case state
+  def move_state(random=@random.rand())
+    #p random=@random.rand()
+    p "random val is " << random.to_s
+    p "q01" << @q01.to_s
+    p "q10" << @q10.to_s
+
+    case @current_state
       when 0 then
         if random.to_f < @q01.to_f then
-        @current_state=1
-        elsif @q01.to_f < random.to_f then
-        @current_state=0
+          @current_state=1
+        else
+          @current_state=0
         end
       when 1 then
         if random.to_f < @q10.to_f
-        @current_state=0
+          @current_state=0
         elsif @q10.to_f < random.to_f then
-        @current_state=1
+          @current_state=1
         end
     end
-
+    @current_state
   end
 
 end
