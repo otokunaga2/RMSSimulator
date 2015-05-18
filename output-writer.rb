@@ -1,13 +1,18 @@
 require 'fileutils'
 require 'date'
 module OutputWriter
-@cursor_file = nil
+  attr_accessor :cursor_file
+  @cursor_file = nil
+  @target_name =nil
+  def set_file_name(target_name)
+    @target_name = target_name
+  end
   def create_file
     now = Time.now.strftime("%Y-%m-%d-%S")
     file_name =  "#{now}.txt"
-    FileUtils.touch(file_name)
+    FileUtils.touch(@target_name << "/" << file_name)
     p "exe"
-    @cursor_file=file_name
+    @cursor_file=@target_name 
   end
   def write_to_file(msg)
     File.open(@cursor_file, "w") do |f|

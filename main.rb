@@ -3,6 +3,7 @@ require './file_reader.rb'
 require './output-writer.rb'
 class Main
   attr_accessor :time
+  #create_file,output_file is defined
   include OutputWriter
   def initialize
     @file_read_instance = SettingReader.new
@@ -14,10 +15,8 @@ class Main
     gradient = @file_read_instance.stored_hash["gradient"]
     firststate = @file_read_instance.stored_hash["firststate"]
     @elderly_instance = Elderly.new(alpha,beta,gamma,simulation_number,gradient,firststate)
-
-    #(alpha,beta,gamma,simulation_number,gradient,initial_state)
     @time = 0
-    #seed as time
+    #seed set as time
     @random_instance = Random.new(1)
   end
 
@@ -27,16 +26,15 @@ class Main
     @time=@time+1
     @elderly_instance.aging(@time)
     @elderly_instance.move_state
-
-    #p "state: #{@elderly_instance.current_state}"
+    self.write_to_file("q10")
   end 
-  
 
 
 end
 
 main_instance_val = Main.new
-main_instance_val.create_file
-for i in 0..100 do 
-  main_instance_val.simulate
-end
+
+main_instance_val.set_file_name("output")
+
+p main_instance_val.simulate
+
