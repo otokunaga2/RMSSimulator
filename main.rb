@@ -3,7 +3,6 @@ require './file-reader.rb'
 require './output-writer.rb'
 class Main
   attr_accessor :time, :elderly
-  #create_file,output_file is defined
   include OutputWriter
   def initialize
     @file_read_instance = SettingReader.new("setting.txt")
