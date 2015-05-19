@@ -1,10 +1,12 @@
+class SettingException < Exception
+  raise SettingException, "setting exception" #=> format error. (SettingException)
+end
 class Watcher
   attr_reader :fail_ratio
   def initialize(fail_ratio)
     @fail_ratio = fail_ratio
-    p "instance"
-    p @fail_ratio
     if @fail_ratio[:healthy].to_i > @fail_ratio[:ill].to_i
+    #do nothing
     else
       raise SettingException
     end
