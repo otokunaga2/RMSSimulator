@@ -1,8 +1,8 @@
 class SettingReader
   attr_reader :matched_list, :stored_hash
-  def initialize
+  def initialize(file_name)
     @stored_hash=Hash.new
-    f = open("setting.txt")
+    f = open(file_name)
     @keywords = %w[alpha beta gamma simulation_number gradient firststate]
     @matched_list = []
     while line = f.gets 

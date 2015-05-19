@@ -1,12 +1,12 @@
 require './elderly.rb'
-require './file_reader.rb'
+require './file-reader.rb'
 require './output-writer.rb'
 class Main
   attr_accessor :time, :elderly
   #create_file,output_file is defined
   include OutputWriter
   def initialize
-    @file_read_instance = SettingReader.new
+    @file_read_instance = SettingReader.new("setting.txt")
     @file_read_instance.store_to_hash
     alpha = @file_read_instance.stored_hash["alpha"]
     beta = @file_read_instance.stored_hash["beta"]
@@ -23,6 +23,7 @@ class Main
 
   def simulate
     self.create_file('output')
+    #this 
     @time=@time+1
     @elderly.current_state = 0
     @elderly.aging(@time)
