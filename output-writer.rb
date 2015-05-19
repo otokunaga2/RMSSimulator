@@ -13,7 +13,7 @@ module OutputWriter
     FileUtils.touch(@target_name)
   end
   def write_to_file(msg)
-    File.open(@target_name, "w") do |f|
+    File.open(@target_name, "a") do |f|
       f.write msg
     end
   end

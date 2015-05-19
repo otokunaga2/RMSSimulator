@@ -22,14 +22,14 @@ class Main
   end
 
   def simulate
-    #get agingn
     self.create_file('output')
     @time=@time+1
+    @elderly.current_state = 0
     @elderly.aging(@time)
-    @elderly.move_state(0)
+    @elderly.move_state()
     if @elderly.current_state == nil
     else
-      self.write_to_file("eldery state:"<<@elderly.current_state)
+      self.write_to_file("eldery state:#{@elderly.current_state}\n")
     end
   end 
 end

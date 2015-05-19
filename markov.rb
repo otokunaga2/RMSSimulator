@@ -19,11 +19,7 @@ class Markov
     end
   end
   def move_state(random=@random.rand())
-    if @current_state = nil
-      raise Exception
-    end
-    #p random=@random.rand()
-    case @current_state
+    case @current_state.to_i
       when 0 then
         if random.to_f < @q01.to_f then
           @current_state=1
@@ -41,5 +37,4 @@ class Markov
     end
     @current_state
   end
-
 end
