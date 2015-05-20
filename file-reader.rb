@@ -1,9 +1,9 @@
 class SettingReader
   attr_reader :matched_list, :stored_hash
-  def initialize(file_name)
+  def initialize(file_name,keywords)
     @stored_hash=Hash.new
     f = open(file_name)
-    @keywords = %w[alpha beta gamma simulation_number gradient firststate]
+    @keywords = keywords
     @matched_list = []
     while line = f.gets 
       line = line.chomp("\n")

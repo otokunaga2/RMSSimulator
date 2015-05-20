@@ -4,3 +4,5 @@ gamma:0.14
 simulation_number:1000
 gradient:0.0005
 firststate:0
+fail_healthy_ratio:0.8
+fail_ill_ratio:0.65

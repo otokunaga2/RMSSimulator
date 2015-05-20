@@ -23,10 +23,10 @@ class Markov
       when 0 then
         if random.to_f < @q01.to_f then
           @current_state=1
-          p "upper"
+          #p "upper"
         else
           @current_state=0
-          p "downner"
+          #p "downner"
         end
       when 1 then
         if random.to_f < @q10.to_f

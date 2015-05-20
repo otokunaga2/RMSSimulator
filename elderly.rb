@@ -12,7 +12,7 @@ class Elderly < Markov
     #p "simulatio time #{time.to_f/@simulation_number.to_f}"
     @aging_param = @aging_param.to_f + @gradient.to_f*(time.to_f/@simulation_number.to_f)**2
     self.q01 = self.q01.to_f + @aging_param.to_f
-    p "aging parameter" << @aging_param.to_s
+    #p "aging parameter" << @aging_param.to_s
     # save parameter between 0 and 1
     self.guard_parameter
     self.q10 = self.q10.to_f - @aging_param
