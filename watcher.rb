@@ -13,10 +13,9 @@ class Watcher
   end
   #elderly_states => [0,1,....]
   #state is now target_elderly state 0 or 1
-  def judge_state(state,elderly_states,random_seed= Rand.new(1))
+  def judge_state(state,random_seed= Random.new(1))
     judged_state = nil
     @random_value = @rand_instance.rand()
-    #@random_value = 0
     case state.to_i
       when 0 then
         if @randowm_value.to_f < fail_ratio[:healthy].to_f

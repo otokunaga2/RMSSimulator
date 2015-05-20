@@ -42,16 +42,14 @@ class Main
   def simulate
     self.create_file('output')
     @watcher = Watcher.new(@watcher_init_ratio_map)
-#    p "simulation debug #{@watcher.fail_ratio}"
-    #this 
+    judged_state = @watcher.judge_state(@elderly.current_state)
     @time=@time+1
     @elderly.current_state = 0
     @elderly.aging(@time)
     @elderly.move_state()
     if @elderly.current_state == nil
     else
-      self.write_to_file("eldery state:#{@elderly.current_state}\n")
-    end
+      self.write_to_file("eldery state:#{@elderly.current_state},judged_state:#{judged_state}\n") end
   end 
 end
 
