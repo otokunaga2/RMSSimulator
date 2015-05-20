@@ -5,6 +5,6 @@ class ObservationState
     
   end
   def show_target_watcher
-    p target_elderly
+    p target_elderly.current_state
   end
 end
