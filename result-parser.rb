@@ -7,13 +7,13 @@ class ResultParser
   def read_file(file_name)
     File.open(file_name) do |file|
       file.each do |line|
-        unless line == nil then
+        #
+        unless line == nil || line == "\n" then
           if line.match(/(?<elderly\_state>)/) != nil
-            p current_state = line.match(/(?<elderly\_state>):(?<number>\d?)/)
-            p current_state["number"]
-            watched_state = line.match(/(?<watched\_state>):(?<number>\d?)/)
-            p watched_state
-            p watched_state["number"]
+            #<?XXXX> this shows the named as grepped  parameter
+            state = line.match(/(?<prev>\w{13}+:)(?<realnum>\d{1})+,(?<watch>\w{13}+:)(?<watched_number>\d{1})/)
+            p state["realnum"]
+            p state["watched_number"]
           end
         end
          # p line.match(/(?<elderly state>):(?<number>\d?)/)[2] 
