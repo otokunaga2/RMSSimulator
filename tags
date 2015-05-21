@@ -1,0 +1,65 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Elderly	elderly.rb	/^class Elderly < Markov$/;"	c
+Main	main-simulator.rb	/^class Main$/;"	c
+Main	main.rb	/^class Main$/;"	c
+Markov	markov.rb	/^class Markov$/;"	c
+ObservationState	observation-state.rb	/^class ObservationState$/;"	c
+OutputWriter	output-writer.rb	/^module OutputWriter$/;"	m
+ResultParser	result-parser.rb	/^class ResultParser$/;"	c
+SettingReader	file-reader.rb	/^class SettingReader$/;"	c
+TestFileReader	test-file-reader.rb	/^class TestFileReader < Minitest::Test$/;"	c
+TestFoo	test-elderly.rb	/^class TestFoo < MiniTest::Test$/;"	c
+TestFoo	test-main.rb	/^class TestFoo < MiniTest::Test$/;"	c
+TestFoo	test_markov.rb	/^class TestFoo < MiniTest::Test$/;"	c
+TestWatcher	test-watcher.rb	/^class TestWatcher < MiniTest::Test$/;"	c
+Watcher	watcher.rb	/^class Watcher$/;"	c
+aging	elderly.rb	/^  def aging(time)$/;"	f	class:Elderly
+confirm_matched_list_is_not_empty	test-file-reader.rb	/^  def confirm_matched_list_is_not_empty$/;"	f	class:TestFileReader
+create_file	output-writer.rb	/^  def create_file(target_name)$/;"	f	class:OutputWriter
+guard_parameter	markov.rb	/^  def guard_parameter$/;"	f	class:Markov
+initialize	elderly.rb	/^  def initialize(alpha,beta,gamma,simulation_number,gradient,initial_state)$/;"	f	class:Elderly
+initialize	file-reader.rb	/^  def initialize(file_name,keywords)$/;"	f	class:SettingReader
+initialize	main-simulator.rb	/^  def initialize$/;"	f	class:Main
+initialize	main.rb	/^  def initialize$/;"	f	class:Main
+initialize	markov.rb	/^  def initialize(alpha,beta,gamma,initial_state=0)$/;"	f	class:Markov
+initialize	observation-state.rb	/^  def initialize(state_number=0,state_name="tn")$/;"	f	class:ObservationState
+initialize	result-parser.rb	/^  def initialize()$/;"	f	class:ResultParser
+initialize	watcher.rb	/^  def initialize(fail_ratio)$/;"	f	class:Watcher
+judge_state	watcher.rb	/^  def judge_state(state,random_seed= Random.new(1))$/;"	f	class:Watcher
+move_state	markov.rb	/^  def move_state(random=@random.rand())$/;"	f	class:Markov
+read_file	result-parser.rb	/^  def read_file(file_name)$/;"	f	class:ResultParser
+setting_hash	main-simulator.rb	/^  def setting_hash(healthy,ill)$/;"	f	class:Main
+setting_hash	main.rb	/^  def setting_hash(healthy,ill)$/;"	f	class:Main
+setup	test-elderly.rb	/^  def setup$/;"	f	class:TestFoo
+setup	test-file-reader.rb	/^  def setup$/;"	f	class:TestFileReader
+setup	test-main.rb	/^  def setup$/;"	f	class:TestFoo
+setup	test-watcher.rb	/^  def setup$/;"	f	class:TestWatcher
+setup	test_markov.rb	/^  def setup$/;"	f	class:TestFoo
+show_target_watcher	observation-state.rb	/^  def show_target_watcher$/;"	f	class:ObservationState
+simulate	main-simulator.rb	/^  def simulate$/;"	f	class:Main
+simulate	main.rb	/^  def simulate$/;"	f	class:Main
+store_to_hash	file-reader.rb	/^  def store_to_hash$/;"	f	class:SettingReader
+teardown	test-elderly.rb	/^  def teardown$/;"	f	class:TestFoo
+teardown	test-main.rb	/^  def teardown$/;"	f	class:TestFoo
+teardown	test-watcher.rb	/^  def teardown$/;"	f	class:TestWatcher
+teardown	test_markov.rb	/^  def teardown$/;"	f	class:TestFoo
+test_file_write	test-file-reader.rb	/^  def test_file_write$/;"	f	class:TestFileReader
+test_judge	test-watcher.rb	/^  def test_judge$/;"	f	class:TestWatcher
+test_move_state_from0_to0	test-elderly.rb	/^  def test_move_state_from0_to0$/;"	f	class:TestFoo
+test_move_state_from0_to0	test-main.rb	/^  def test_move_state_from0_to0$/;"	f	class:TestFoo
+test_move_state_from0_to0	test_markov.rb	/^  def test_move_state_from0_to0$/;"	f	class:TestFoo
+test_move_state_from0_to1	test-elderly.rb	/^  def test_move_state_from0_to1$/;"	f	class:TestFoo
+test_move_state_from0_to1	test-main.rb	/^  def test_move_state_from0_to1$/;"	f	class:TestFoo
+test_move_state_from0_to1	test_markov.rb	/^  def test_move_state_from0_to1$/;"	f	class:TestFoo
+test_move_state_from1_to0	test-elderly.rb	/^  def test_move_state_from1_to0$/;"	f	class:TestFoo
+test_move_state_from1_to0	test-main.rb	/^  def test_move_state_from1_to0$/;"	f	class:TestFoo
+test_move_state_from1_to0	test_markov.rb	/^  def test_move_state_from1_to0$/;"	f	class:TestFoo
+test_move_state_from1_to1	test-elderly.rb	/^  def test_move_state_from1_to1$/;"	f	class:TestFoo
+test_move_state_from1_to1	test-main.rb	/^  def test_move_state_from1_to1$/;"	f	class:TestFoo
+test_move_state_from1_to1	test_markov.rb	/^  def test_move_state_from1_to1$/;"	f	class:TestFoo
+write_to_file	output-writer.rb	/^  def write_to_file(msg)$/;"	f	class:OutputWriter

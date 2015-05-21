@@ -1,0 +1,2 @@
+elderly_state:0,judged_state:1
+

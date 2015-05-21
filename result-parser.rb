@@ -4,15 +4,22 @@ class ResultParser
     @matched_list = []
   end
   def read_file(file_name)
-    File.open("./output/2015-05-20-16.txt") do |file|
+    File.open(file_name) do |file|
       file.each do |line|
-        if line.match(/(?<elderly state>):(?<number>\d?)/) || line.match(/(?<judged\_state>):(?<watched_number>\d)/)
-          p line.match(/(?<elderly state>):(?<number>\d?)/) 
-          p line.match(/(?<judged\_state>):(?<watched_number>\d)/)
+        if line.match(/(?<elderly state>):(?<number>\d?)/) 
+          current_state = line.match(/(?<elderly state>):(?<number>\d?)/)[2].to_i
+          watched_state = line.match(/(?<judged\_state>):(?<watched_number>\d)/)[2].to_i
+          if current_state == watched_state
+            p "tp"
+          else 
+            p "tn"
+          end
+         # p line.match(/(?<elderly state>):(?<number>\d?)/)[2] 
+         # p line.match(/(?<judged\_state>):(?<watched_number>\d)/)[2]
         end
       end
     end
   end
 end
 tmp = ResultParser.new()
-tmp.read_file("./output/2015-05-20-16.txt")
+tmp.read_file("./test/test.txt")
