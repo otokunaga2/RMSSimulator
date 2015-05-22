@@ -1,22 +1,23 @@
 class ResultParser
   attr_reader :matched_list, :stored_hash
+  
   def initialize()
     @matched_list = []
   end
   def read_file(file_name)
     File.open(file_name) do |file|
       file.each do |line|
-        if line.match(/(?<elderly state>):(?<number>\d?)/) 
-          current_state = line.match(/(?<elderly state>):(?<number>\d?)/)[2].to_i
-          watched_state = line.match(/(?<judged\_state>):(?<watched_number>\d)/)[2].to_i
-          if current_state == watched_state
-            p "tp"
-          else 
-            p "tn"
+        #
+        unless line == nil || line == "\n" then
+          if line.match(/(?<elderly\_state>)/) != nil
+            #<?XXXX> this shows the named as grepped  parameter
+            state = line.match(/(?<prev>\w{13}+:)(?<realnum>\d{1})+,(?<watch>\w{13}+:)(?<watched_number>\d{1})/)
+            p state["realnum"]
+            p state["watched_number"]
           end
+        end
          # p line.match(/(?<elderly state>):(?<number>\d?)/)[2] 
          # p line.match(/(?<judged\_state>):(?<watched_number>\d)/)[2]
-        end
       end
     end
   end
