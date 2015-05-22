@@ -1,5 +1,5 @@
 alpha:0.2 
-beta:0.123
+beta:0.277778
 gamma:0.14
 simulation_number:1000
 gradient:0.0005
