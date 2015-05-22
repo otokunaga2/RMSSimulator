@@ -1,12 +1,13 @@
 require './markov.rb'
 class Elderly < Markov
-  def initialize(alpha,beta,gamma,simulation_number,gradient,initial_state)
+  def initialize(alpha,beta,gamma,simulation_number,gradient,second_gradient,third_gradient,initial_state)
     @state=[0,1]
     @simulation_number = simulation_number
     @gradient=gradient.to_f
+    @second_gradient = second_gradient.to_f
+    @third_gradient = third_gradient.to_f
     @aging_param=0
-    #@current_state=0
-    super(alpha,beta,gamma,initial_state)
+    super(initial_state)
   end
   def aging(time)
     #p "simulatio time #{time.to_f/@simulation_number.to_f}"
