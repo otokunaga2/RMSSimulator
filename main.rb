@@ -24,6 +24,7 @@ class Main
     simulation_number = @file_read_instance.stored_hash["simulation_number"]
 
     gradient = @file_read_instance.stored_hash["gradient"]
+    p gradient
     firststate = @file_read_instance.stored_hash["firststate"]
     firststate = 0
     @elderly = Elderly.new(alpha,beta,gamma,simulation_number,gradient,firststate)
