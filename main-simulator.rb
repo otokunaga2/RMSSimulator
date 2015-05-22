@@ -49,12 +49,10 @@ class Main
     @elderly.move_state()
     if @elderly.current_state == nil
     else
-<<<<<<< HEAD
       #self.write_to_file("eldery state:#{@elderly.current_state},judged_state:#{judged_state}\n") end
       self.write_to_file("#{@elderly.current_state},#{judged_state}\n") end
-=======
-      self.write_to_file("eldery_state:#{@elderly.current_state},judged_state:#{judged_state}\n") end
->>>>>>> fixing result parser
+      #self.write_to_file("eldery_state:#{@elderly.current_state},judged_state:#{judged_state}\n") end
+     #self.write_to_file("eldery_state:#{@elderly.current_state},judged_state:#{judged_state}\n") end
   end 
 end
 
