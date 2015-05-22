@@ -28,12 +28,13 @@ class Main
     gradient = @file_read_instance.stored_hash["gradient"]
     second_gradient = @file_read_instance.stored_hash["second_gradient"]
     third_gradient = @file_read_instance.stored_hash["third_gradient"]
-    p second_gradient
-    p third_gradient
     #gradient = @file_read_instance.stored_hash["first_gradient"]
     firststate = @file_read_instance.stored_hash["firststate"]
-    firststate = 0
-    @elderly = Elderly.new(alpha,beta,gamma,simulation_number,gradient,second_gradient,third_gradient,firststate)
+    temp_test = nil
+    p "result of check params#{validate_parameters(alpha,beta,gamma,simulation_number,gradient,second_gradient,third_gradient,firststate)}"
+    #check the 
+    @elderly = Elderly.new(alpha: alpha,beta: beta,gamma: gamma,simulation_number: simulation_number,
+                           gradient: gradient,second_gradient: second_gradient,third_gradient: third_gradient,first_state: firststate)
     @time = 0
     fail_healthy_ratio= @file_read_instance.stored_hash["fail_healthy_ratio"]
     fail_ill_ratio = @file_read_instance.stored_hash["fail_ill_ratio"]
@@ -59,8 +60,16 @@ class Main
       self.write_to_file("#{@elderly.current_state},#{judged_state}\n") 
     end
   end 
-  def validate_simulation_numbers
-
+  def validate_parameters(*params)
+    return_validation=""
+    params.each do |param_element|
+       return_validation = return_validation && param_element
+    end
+    unless return_validation == nil
+      return_validation
+    else
+      raise FileSettingError
+    end
   end
 end
 
