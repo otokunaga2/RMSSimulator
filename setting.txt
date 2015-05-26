@@ -1,7 +1,7 @@
 alpha:0.2 
 beta:0.123
 gamma:0.14
-simulation_number:1000
+simulation_number:3000
 gradient:0.0005
 firststate:0
 fail_healthy_ratio:0.8

@@ -1,13 +1,12 @@
 require 'fileutils'
 require 'date'
 module OutputWriter
-  @target_name = nil
-  def create_file(target_name)
+  def create_file(file_name)
     now = Time.now.strftime("%Y-%m-%d-%S")
-    file_name =  "#{now}.txt"
-    unless @target_name != nil then
-      @target_name = target_name << "/" << file_name
+    unless file_name != nil
+      file_name =  "#{now}.txt"
     end
+    @target_name = "output/" << file_name
     #creating file
     FileUtils.touch(@target_name)
   end
@@ -17,3 +16,6 @@ module OutputWriter
     end
   end
 end
+
+
+
