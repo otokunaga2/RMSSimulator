@@ -1,1 +1,1 @@
-healthy
+class FileSettingError < StandardError; end

@@ -15,15 +15,19 @@ class SettingReader
     end
     f.close
   end
+  #ハッシュに格納する
   def store_to_hash
     @keywords.each do |keyword|
       @matched_list.each do |component|
         case  component["keytag"] 
            when keyword then
-              p component["number"]
+              if component["number"] == nil
+                raise FileSettingError
+              end
+              #p component["number"]
               @stored_hash[keyword] = component["number"]
            else
-             #raise Exception
+             # raise error
         end
       end
 

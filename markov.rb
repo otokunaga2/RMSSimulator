@@ -1,11 +1,6 @@
 class Markov
   attr_accessor :current_state, :q01, :q10
-  def initialize(alpha,beta,gamma,initial_state=0)
-    @q01=alpha
-    @q10=gamma
-    #@q00=1-@q01
-    #@q11=1-@q10
-    @random = Random.new(Time.now.to_i)
+  def initialize(initial_state=0)
     @current_state=initial_state
   end
   def guard_parameter
@@ -15,18 +10,16 @@ class Markov
     if @q10.to_f > 0.9999
       @q10 = 0.9999
     elsif @q10.to_f < 0
-      @q10 = 0.0001
+      @q10 = 0
     end
   end
-  def move_state(random=@random.rand())
+  def move_state(random=Random.rand())
     case @current_state.to_i
       when 0 then
         if random.to_f < @q01.to_f then
           @current_state=1
-          #p "upper"
         else
           @current_state=0
-          #p "downner"
         end
       when 1 then
         if random.to_f < @q10.to_f
