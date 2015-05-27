@@ -1,15 +1,11 @@
-alpha:0.2 
-beta:0.277778
+alpha:0.003
+beta:0.0002
 gamma:0.14
-<<<<<<< HEAD
-simulation_number:3000
 gradient:0.0005
-=======
-simulation_number:1000
-gradient:0.27777778,
-second_gradient:0.38888889
-third_gradient:0.333333
->>>>>>> be982975faa3a354deecd58851ddfd447407220f
+simulation_number:10950
+gradient:0.027
+second_gradient:0.038888889
+third_gradient:0.0333333
 firststate:0
 fail_healthy_ratio:0.8
 fail_ill_ratio:0.65
