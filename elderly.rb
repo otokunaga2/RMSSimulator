@@ -20,13 +20,17 @@ class Elderly < Markov
       when one_year*20+1..one_year*30 then temp_gradient = @third_gradient.to_f
     end
     #2jyou no reason wo
-    @aging_param = @aging_param.to_f + temp_gradient*(time.to_f/@simulation_number.to_f)**2
-    self.q01 = self.q01.to_f + @aging_param.to_f
+    aging_param = @aging_param.to_f + temp_gradient*(time.to_f/@simulation_number.to_f)**2
+    self.q01 = self.q01.to_f + aging_param.to_f
+    #p self.q01
     # save parameter between 0 and 1
     self.guard_parameter
-    self.q10 = self.q10.to_f - @aging_param
+    self.q10 = self.q10.to_f - aging_param.to_f
+    self.q10
     # save parameter between 0 and 1
     self.guard_parameter
+
+    #p "last resultq01:#{self.q01},#{self.q01}"
     #self.current_state = self.move_state()
     temp_gradient
   end

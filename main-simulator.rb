@@ -9,7 +9,6 @@ class Main
   include OutputWriter
   def initialize(setting_file_name: 'setting.txt')
     @time = 0
-    @file_read_instance = SettingReader.new(setting_file_name,target_word_list)
     target_word_list = %w[alpha beta gamma simulation_number 
                           gradient second_gradient third_gradient firststate fail_ill_ratio fail_healthy_ratio]
     @file_read_instance = SettingReader.new("setting.txt",target_word_list)
