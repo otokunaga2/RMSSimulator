@@ -4,7 +4,7 @@ require './file-reader.rb'
 require './file-writer.rb'
 require './setting-error.rb'
 class Main
-  attr_accessor :time, :elderly, :simulation_number
+  attr_accessor :time, :elderly, :simulation_number, :current_target_file
   include OutputWriter
   def initialize(setting_file_name: 'setting.txt')
     @time = 0
@@ -31,14 +31,28 @@ class Main
     fail_ill_ratio = @file_read_instance.stored_hash["fail_ill_ratio"]
     @random_instance = Random.new(1)
     setting_hash(fail_healthy_ratio,fail_ill_ratio)
+    #creating for the output file
+
+    #self.create_file(nil)
+    create_file(nil)
   end
+
+  def create_file(file_name)
+    now = Time.now.strftime("%Y-%m-%d-%S")
+    unless file_name != nil
+      file_name =  "#{now}.txt"
+    end
+    @target_name = "output/" << file_name
+    FileUtils.touch(@target_name)
+    @current_target_file = @target_name
+  end
+  
   def setting_hash(healthy,ill)
     @watcher_init_ratio_map = {}
     @watcher_init_ratio_map = {:healthy => healthy, :ill => ill}
   end
 
   def simulate
-    self.create_file(nil)
     @watcher = Watcher.new(@watcher_init_ratio_map)
     judged_state = @watcher.judge_state(@elderly.current_state)
     @time=@time+1
@@ -47,9 +61,10 @@ class Main
     @elderly.move_state()
     if @elderly.current_state == nil
     else
-      self.write_to_file("#{@elderly.current_state},#{judged_state}\n") 
+      self.write_to_file(@current_target_file,"#{@elderly.current_state},#{judged_state}\n") 
     end
   end 
+
   def validate_parameters(*params)
     return_validation=""
     params.each do |param_element|

@@ -1,19 +1,12 @@
 require 'fileutils'
-require 'date'
 module OutputWriter
-  def create_file(file_name)
-    now = Time.now.strftime("%Y-%m-%d-%S")
-    unless file_name != nil
-      file_name =  "#{now}.txt"
-    end
-    @target_name = "output/" << file_name
-    #creating file
-    FileUtils.touch(@target_name)
-  end
-
-  def write_to_file(msg)
-    File.open(@target_name, "a") do |f|
+  def write_to_file(target_file,msg)
+    File.open(target_file, "a") do |f|
+      begin
       f.write msg
+      rescue => e
+        p "error has occured #{e}"
+      end
     end
   end
 end
