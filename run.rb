@@ -4,9 +4,11 @@ require './file-reader.rb'
 require './file-writer.rb'
 require './setting-error.rb'
 class Main
-  attr_accessor :time, :elderly, :simulation_number, :current_target_file
+  attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
   include OutputWriter
   def initialize(setting_file_name: 'setting.txt')
+    #default setting
+    @setting_file_name = setting_file_name
     @time = 0
     target_word_list = %w[alpha beta gamma simulation_number 
                           gradient second_gradient third_gradient firststate
@@ -34,13 +36,17 @@ class Main
     #creating for the output file
 
     #self.create_file(nil)
-    create_file(nil)
+    create_file(prefix: @setting_file_name,file_name: nil)
   end
-
-  def create_file(file_name)
+  def restore_outputfile(file_name: nil)
+    @setting_file_name = file_name
+    create_file(prefix: @setting_file_name ,file_name: nil)
+    @current_target_file = @target_name
+  end
+  def create_file(prefix: nil,file_name: "setting.txt")
     now = Time.now.strftime("%Y-%m-%d-%S")
     unless file_name != nil
-      file_name =  "#{now}.txt"
+      file_name = prefix << "#{now}.txt"
     end
     @target_name = "output/" << file_name
     FileUtils.touch(@target_name)
@@ -76,9 +82,4 @@ class Main
       raise FileSettingError
     end
   end
-end
-
-main_instance = Main.new
-main_instance.simulation_number.to_i.times do
-  main_instance.simulate
 end
