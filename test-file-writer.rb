@@ -9,7 +9,7 @@ class TestFileReader < Minitest::Test
   def test_is_file_created?
   end
   def test_is_writing?
-    file_name = '2015-05-26-22.txt'
+    file_name = '2015-05-29-22.txt'
     @setting_writer.create_file(file_name)
     @setting_writer.write_to_file('hogehoge')
     f = open('output/' << file_name)

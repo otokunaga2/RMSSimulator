@@ -2,14 +2,12 @@ require './elderly.rb'
 require './watcher.rb'
 require './file-reader.rb'
 require './file-writer.rb'
-require './output-writer.rb'
-require './setting-error.rb'
+#require './setting-error.rb'
 class Main
   attr_accessor :time, :elderly
   include OutputWriter
   def initialize(setting_file_name: 'setting.txt')
     @time = 0
-    @file_read_instance = SettingReader.new(setting_file_name,target_word_list)
     target_word_list = %w[alpha beta gamma simulation_number 
                           gradient second_gradient third_gradient firststate fail_ill_ratio fail_healthy_ratio]
     @file_read_instance = SettingReader.new("setting.txt",target_word_list)
@@ -24,10 +22,10 @@ class Main
     third_gradient = @file_read_instance.stored_hash["third_gradient"]
     #gradient = @file_read_instance.stored_hash["first_gradient"]
     firststate = @file_read_instance.stored_hash["firststate"]
-    @elderly = Elderly.new(alpha,beta,gamma,@simulation_number,gradient,firststate)
-    p "result of check params#{validate_parameters(alpha,beta,gamma,simulation_number,gradient,second_gradient,third_gradient,firststate)}"
+    #@elderly = Elderly.new(alpha,beta,gamma,@simulation_number,gradient,firststate)
+   # p "result of check params#{validate_parameters(alpha,beta,gamma,simulation_number,gradient,second_gradient,third_gradient,firststate)}"
     #check the 
-    @elderly = Elderly.new(alpha: alpha,beta: beta,gamma: gamma,simulation_number: simulation_number,
+    @elderly = Elderly.new(alpha: alpha,beta: beta,gamma: gamma,simulation_number: @simulation_number,
                            gradient: gradient,second_gradient: second_gradient,third_gradient: third_gradient,first_state: firststate)
     @time = 0
     fail_healthy_ratio= @file_read_instance.stored_hash["fail_healthy_ratio"]
@@ -41,7 +39,7 @@ class Main
   end
 
   def simulate
-    self.create_file('output')
+    self.create_file()
     @watcher = Watcher.new(@watcher_init_ratio_map)
     judged_state = @watcher.judge_state(@elderly.current_state)
     @time=@time+1
