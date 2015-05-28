@@ -6,14 +6,14 @@ require './setting-error.rb'
 class Main
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
   include OutputWriter
-  def initialize(setting_file_name: 'simulation_setting/setting.txt')
+  def initialize(setting_file_name: 'setting.txt')
     #default setting
     @setting_file_name = setting_file_name
     @time = 0
     target_word_list = %w[alpha beta gamma simulation_number 
                           gradient second_gradient third_gradient firststate
                           fail_ill_ratio fail_healthy_ratio]
-    @file_read_instance = SettingReader.new("setting.txt",target_word_list)
+    @file_read_instance = SettingReader.new(setting_file_name,target_word_list)
     @file_read_instance.store_to_hash
     alpha = @file_read_instance.stored_hash["alpha"]
     beta = @file_read_instance.stored_hash["beta"]
@@ -62,7 +62,6 @@ class Main
     @watcher = Watcher.new(@watcher_init_ratio_map)
     judged_state = @watcher.judge_state(@elderly.current_state)
     @time=@time+1
-    @elderly.current_state = 0
     @elderly.aging(@time)
     @elderly.move_state()
     if @elderly.current_state == nil
