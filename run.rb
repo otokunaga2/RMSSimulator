@@ -32,7 +32,7 @@ class Main
     fail_healthy_ratio= @file_read_instance.stored_hash["fail_healthy_ratio"]
     fail_ill_ratio = @file_read_instance.stored_hash["fail_ill_ratio"]
     @random_instance = Random.new(1)
-    setting_hash(fail_healthy_ratio,fail_ill_ratio)
+    set_hash(fail_healthy_ratio,fail_ill_ratio)
     #creating for the output file
 
     #self.create_file(nil)
@@ -53,7 +53,7 @@ class Main
     @current_target_file = @target_name
   end
   
-  def setting_hash(healthy,ill)
+  def set_hash(healthy,ill)
     @watcher_init_ratio_map = {}
     @watcher_init_ratio_map = {:healthy => healthy, :ill => ill}
   end
