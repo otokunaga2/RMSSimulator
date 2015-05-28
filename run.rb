@@ -6,7 +6,7 @@ require './setting-error.rb'
 class Main
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
   include OutputWriter
-  def initialize(setting_file_name: 'setting.txt')
+  def initialize(setting_file_name: 'simulation_setting/setting.txt')
     #default setting
     @setting_file_name = setting_file_name
     @time = 0
