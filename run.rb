@@ -32,6 +32,7 @@ class Main
     fail_healthy_ratio= @file_read_instance.stored_hash["fail_healthy_ratio"]
     fail_ill_ratio = @file_read_instance.stored_hash["fail_ill_ratio"]
     @random_instance = Random.new(1)
+    #set the watcher as 
     set_hash(fail_healthy_ratio,fail_ill_ratio)
     #creating for the output file
 
