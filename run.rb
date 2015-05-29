@@ -37,17 +37,13 @@ class Main
     #creating for the output file
 
   end
-  #def restore_outputfile(file_name: nil)
-  #  @setting_file_name = file_name
-  #  create_file(prefix: @setting_file_name ,file_name: nil) @current_target_file = @target_name
-  #end
+
   def create_file(prefix: nil)
     now = Time.now.strftime("%Y-%m-%d-%S")
     file_name = prefix << "#{now}.txt"
     target_name = "output/" << file_name
     if (File.exist?(target_name))
       p target_name
-      #do nothing
     else
       FileUtils.touch(target_name)
     end
@@ -59,8 +55,8 @@ class Main
     @watcher_init_ratio_map = {:healthy => healthy, :ill => ill}
   end
 
-  def simulate(setting_file_name)
-    target_file = create_file(prefix: setting_file_name)
+  def simulate(temp_setting_file_name)
+    target_file = create_file(prefix: temp_setting_file_name)
     @watcher = Watcher.new(@watcher_init_ratio_map)
     judged_state = @watcher.judge_state(@elderly.current_state)
     @time=@time+1
