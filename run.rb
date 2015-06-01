@@ -35,7 +35,6 @@ class Main
     #set the watcher as 
     set_hash(fail_healthy_ratio,fail_ill_ratio)
     #creating for the output file
-
   end
 
   def create_file(prefix: nil)
