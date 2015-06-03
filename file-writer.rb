@@ -2,7 +2,10 @@ require 'fileutils'
 require 'singleton'
 #only one instance
 class OutputWriter
+  #singletonクラスに設定
+  # -インスタンス化を防ぐ->このクラス自体は使いまわせるため、ひとつで充分
   include Singleton
+  #
   def write_to_file(target_file,msg)
     File.open(target_file, "a") do |f|
       begin
@@ -12,6 +15,7 @@ class OutputWriter
       end
     end
   end
+  #シミュレーション結果を格納するファイルを生成するメソッド
   def create_file(prefix: nil)
     now = Time.now.strftime("%Y-%m-%d-%S")
     file_name = prefix << "#{now}.txt"
@@ -22,8 +26,6 @@ class OutputWriter
       p "#{e},ファイルを作成することに失敗しました"
       raise Error
     end
+    set_to_dir_file
   end
 end
-
-
-p  OutputWriter.instance.create_file(:prefix=>"china" )

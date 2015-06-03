@@ -4,7 +4,7 @@ require './file-reader.rb'
 require './file-writer.rb'
 require './setting-error.rb'
 
-class Main < OutputWriter
+class Main
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
   def initialize(setting_file_name: 'setting.txt')
     #default setting
@@ -37,7 +37,7 @@ class Main < OutputWriter
     #creating for the output file
 
     #self.create_file(nil)
-    self.instance.create_file(prefix: @setting_file_name,file_name: nil)
+    @current_target_file = OutputWriter.instance.create_file(prefix: @setting_file_name)
   end
   def restore_outputfile(file_name: nil)
     @setting_file_name = file_name
@@ -58,7 +58,7 @@ class Main < OutputWriter
     @elderly.move_state()
     if @elderly.current_state == nil
     else
-      self.write_to_file(@current_target_file,"#{@elderly.current_state},#{judged_state}\n") 
+      OutputWriter.instance.write_to_file(@current_target_file,"#{@elderly.current_state},#{judged_state}\n") 
     end
   end 
 
