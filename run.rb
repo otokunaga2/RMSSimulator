@@ -3,9 +3,9 @@ require './watcher.rb'
 require './file-reader.rb'
 require './file-writer.rb'
 require './setting-error.rb'
-class Main
+
+class Main < OutputWriter
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
-  include OutputWriter
   def initialize(setting_file_name: 'setting.txt')
     #default setting
     @setting_file_name = setting_file_name
@@ -37,20 +37,11 @@ class Main
     #creating for the output file
 
     #self.create_file(nil)
-    create_file(prefix: @setting_file_name,file_name: nil)
+    self.instance.create_file(prefix: @setting_file_name,file_name: nil)
   end
   def restore_outputfile(file_name: nil)
     @setting_file_name = file_name
     create_file(prefix: @setting_file_name ,file_name: nil)
-    @current_target_file = @target_name
-  end
-  def create_file(prefix: nil,file_name: "setting.txt")
-    now = Time.now.strftime("%Y-%m-%d-%S")
-    unless file_name != nil
-      file_name = prefix << "#{now}.txt"
-    end
-    @target_name = "output/" << file_name
-    FileUtils.touch(@target_name)
     @current_target_file = @target_name
   end
   
