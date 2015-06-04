@@ -31,16 +31,16 @@ class Main
                            simulation_number: @simulation_number,
                            gradient: @gradient,second_gradient: @second_gradient,
                            third_gradient: @third_gradient,first_state: firststate)
-    #@elderly.current_state = 0
     fail_healthy_ratio= @file_read_instance.stored_hash["fail_healthy_ratio"]
     fail_ill_ratio = @file_read_instance.stored_hash["fail_ill_ratio"]
     @random_instance = Random.new(1)
+    #set the watcher as 
     set_hash(fail_healthy_ratio,fail_ill_ratio)
     @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
   end
 
   def restore_outputfile(prefix: setting_file_name)
-    @current_target_file = OutputWriter.instance.create_file(prefix: prefix)
+    @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
   end
   
   def set_hash(healthy,ill)

@@ -1,11 +1,10 @@
 require 'fileutils'
 require 'singleton'
-#only one instance
+
+#singletonクラスに設定
 class OutputWriter
-  #singletonクラスに設定
-  # -インスタンス化を防ぐ->このクラス自体は使いまわせるため、ひとつで充分
   include Singleton
-  #
+  #対象ファイルに、ある特定メッセージを書き込む
   def write_to_file(target_file,msg)
     File.open(target_file, "a") do |f|
       begin
@@ -15,17 +14,18 @@ class OutputWriter
       end
     end
   end
-
+  #ファイル名が重複しないように10文字のランダム文字列をファイル名に足すためのメソッド
   private 
     def get_random_val
-      (0...8).map{ ('A'..'Z').to_a[rand(26)] }.join 
+      (0...10).map{ ('A'..'Z').to_a[rand(26)] }.join 
     end
   public
   #シミュレーション結果を格納するファイルを生成するメソッド
   #デフォルトで""を利用するように設定
   def create_file(prefix: "")
+    #p "debug #{ prefix}"
     now = Time.now.strftime("%Y-%m-%d-%S")
-    file_name = prefix <<  get_random_val() << "#{now}.txt"
+    file_name = prefix << get_random_val() << "#{now}.txt"
     set_to_dir_file = "output/" << file_name
     begin
       FileUtils.touch(set_to_dir_file)

@@ -1,5 +1,6 @@
 require './markov.rb'
 class Elderly < Markov
+  attr_accessor :current_state
   def initialize(alpha: nil, beta: nil,gamma: nil,simulation_number: nil,gradient: nil,
                  second_gradient: nil,third_gradient: nil,first_state: nil)
     @simulation_number = simulation_number
@@ -8,6 +9,7 @@ class Elderly < Markov
     @third_gradient = third_gradient.to_f
     @aging_param=alpha
     @alpha = alpha
+    self.current_state = first_state
     self.q01 = beta
     self.q10 = gamma
     super(first_state)
