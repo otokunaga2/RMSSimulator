@@ -23,6 +23,7 @@ class Elderly < Markov
     self.q01 = beta
     self.q10 = gamma
     self.first_state = 0
+    @time = 0
   end
   def aging(time)
     one_year = 365

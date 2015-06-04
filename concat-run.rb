@@ -1,10 +1,8 @@
 require './run.rb'
 
-#本当はシミュレーションのデータを初期化するように修正
-#その場しのぎの実装
-#
+#todo シミュレーションのデータを初期化するように修正
 main_instance = Main.new
-for i in 0..3 do
+for i in 0..100 do
   main_instance.restore_outputfile("")
   main_instance.simulation_number.to_i.times do
     main_instance.simulate
