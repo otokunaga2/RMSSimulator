@@ -18,4 +18,4 @@
 
 
 ##参考文献
-1.Seiki Tokunaga et.al ``How should remote monitoring sensor be accurate?'', http:/ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=7001809&abstractAccess=no&userType=inst
+Seiki Tokunaga, Sinsuke Matsumoto, Sachio Saiki, and Masahide Nakamura, ``How Should Remote Monitoring Sensor Be Accurate?,'' In The 1st International Workshop on Reliability of eHealth Information Systems (ReHIS2014), url: http:/ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=7001809&abstractAccess=no&userType=inst

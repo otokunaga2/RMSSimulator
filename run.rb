@@ -13,7 +13,7 @@ class Main
     init_property(setting_file_name: init_setting_file_name)
   end
 
-  #設定ファイルから変数に格納するための初期関数
+  #設定ファイルから変数に格納するための初期化関数
   def init_property(setting_file_name: 'setting.txt')
     target_word_list = %w[alpha beta gamma simulation_number 
                           gradient second_gradient third_gradient firststate
@@ -21,21 +21,19 @@ class Main
     file_read_instance = SettingReader.new(setting_file_name,target_word_list)
     file_read_instance.store_to_hash
     alpha = file_read_instance.stored_hash["alpha"]
-    beta = file_read_instance.stored_hash["beta"]
+    beta  = file_read_instance.stored_hash["beta"]
     gamma = file_read_instance.stored_hash["gamma"]
     @simulation_number = file_read_instance.stored_hash["simulation_number"]
-    gradient = file_read_instance.stored_hash["gradient"]
+    gradient        = file_read_instance.stored_hash["gradient"]
     second_gradient = file_read_instance.stored_hash["second_gradient"]
-    third_gradient = file_read_instance.stored_hash["third_gradient"]
-    firststate = file_read_instance.stored_hash["firststate"]
+    third_gradient  = file_read_instance.stored_hash["third_gradient"]
+    firststate      = file_read_instance.stored_hash["firststate"]
     @elderly = Elderly.new(alpha: alpha,beta: beta,gamma: gamma,
                            simulation_number: @simulation_number,
                            gradient: gradient,second_gradient: second_gradient,
                            third_gradient: third_gradient,first_state: firststate)
-    #@elderly.current_state = 0
     fail_healthy_ratio= file_read_instance.stored_hash["fail_healthy_ratio"]
     fail_ill_ratio = file_read_instance.stored_hash["fail_ill_ratio"]
-    #@random_instance = Random.new(1)
     set_hash(fail_healthy_ratio,fail_ill_ratio)
     @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
   end
