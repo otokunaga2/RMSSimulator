@@ -15,10 +15,17 @@ class OutputWriter
       end
     end
   end
+
+  private 
+    def get_random_val
+      (0...8).map{ ('A'..'Z').to_a[rand(26)] }.join 
+    end
+  public
   #シミュレーション結果を格納するファイルを生成するメソッド
-  def create_file(prefix: nil)
+  #デフォルトで""を利用するように設定
+  def create_file(prefix: "")
     now = Time.now.strftime("%Y-%m-%d-%S")
-    file_name = prefix << "#{now}.txt"
+    file_name = prefix <<  get_random_val() << "#{now}.txt"
     set_to_dir_file = "output/" << file_name
     begin
       FileUtils.touch(set_to_dir_file)

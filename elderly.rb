@@ -2,7 +2,6 @@ require './markov.rb'
 class Elderly < Markov
   def initialize(alpha: nil, beta: nil,gamma: nil,simulation_number: nil,gradient: nil,
                  second_gradient: nil,third_gradient: nil,first_state: nil)
-    @state=[0,1]
     @simulation_number = simulation_number
     @gradient=gradient.to_f
     @second_gradient = second_gradient.to_f
@@ -12,6 +11,18 @@ class Elderly < Markov
     self.q01 = beta
     self.q10 = gamma
     super(first_state)
+  end
+  def reset_parameter(alpha: nil, beta: nil,gamma: nil,simulation_number: nil,gradient: nil,
+            second_gradient: nil,third_gradient: nil,first_state: nil)
+    @simulation_number = simulation_number
+    @gradient=gradient.to_f
+    @second_gradient = second_gradient.to_f
+    @third_gradient = third_gradient.to_f
+    @aging_param=alpha
+    @alpha = alpha
+    self.q01 = beta
+    self.q10 = gamma
+    self.first_state = 0
   end
   def aging(time)
     one_year = 365

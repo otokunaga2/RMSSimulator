@@ -8,13 +8,13 @@ class Main
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
   def initialize(setting_file_name: 'setting.txt')
     #default setting
-    @setting_file_name = setting_file_name
     @time = 0
     target_word_list = %w[alpha beta gamma simulation_number 
                           gradient second_gradient third_gradient firststate
                           fail_ill_ratio fail_healthy_ratio]
     @file_read_instance = SettingReader.new(setting_file_name,target_word_list)
     @file_read_instance.store_to_hash
+#
     alpha = @file_read_instance.stored_hash["alpha"]
     beta = @file_read_instance.stored_hash["beta"]
     gamma = @file_read_instance.stored_hash["gamma"]
@@ -37,12 +37,10 @@ class Main
     #creating for the output file
 
     #self.create_file(nil)
-    @current_target_file = OutputWriter.instance.create_file(prefix: @setting_file_name)
+    @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
   end
-  def restore_outputfile(file_name: nil)
-    @setting_file_name = file_name
-    create_file(prefix: @setting_file_name ,file_name: nil)
-    @current_target_file = @target_name
+  def restore_outputfile(setting_file_name)
+    @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
   end
   
   def set_hash(healthy,ill)
