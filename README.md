@@ -8,9 +8,11 @@
 -Ruby 2.2.2p95
 
 ##実行方法
-$ git clone this repositry
-$ cd RMSSimulator
-$ ruby concat-run.rb
+> $ git clone this repositry 
+
+> $ cd RMSSimulator 
+
+> $ ruby concat-run.rb
 設定ファイル（setting.txt）は上のconcat-run.rbから読み込んでいます。
 パラメータの修正などは上記ファイルを編集する必要があります。
 
