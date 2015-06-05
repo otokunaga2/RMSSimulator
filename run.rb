@@ -22,9 +22,9 @@ class Main
     file_read_instance = SettingReader.new(setting_file_name,target_word_list)
     file_read_instance.store_to_hash
     alpha = file_read_instance.stored_hash["alpha"]
-    y     = file_read_instance.stored_hash["y"]
-    q01   = file_read_instance.stored_hash["q01"]
-    q10   = file_read_instance.stored_hash["q10"]
+    y     = file_read_instance.stored_hash["y"].to_f
+    q01   = file_read_instance.stored_hash["q01"].to_f
+    q10   = file_read_instance.stored_hash["q10"].to_f
     @simulation_number = file_read_instance.stored_hash["simulation_number"]
     gradient        = file_read_instance.stored_hash["gradient"]
     second_gradient = file_read_instance.stored_hash["second_gradient"]

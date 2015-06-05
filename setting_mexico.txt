@@ -1,6 +1,7 @@
 alpha:0.00003
-beta:0.5
-gamma:0.5
+q01:0.5
+q10:0.5
+y:0.1
 simulation_number:10950
 gradient:0.00002061072
 second_gradient:0.00002061072

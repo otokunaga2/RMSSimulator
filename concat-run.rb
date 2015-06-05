@@ -3,7 +3,7 @@ require './run.rb'
 #シミュレーションを実行するインスタンスを格納するためのリスト
 main_instance_list = []
 #シミュレーションを実行するインスタンスの生成
-for i in 1..1000 do
+for i in 1..1 do
   main_instance_list.push(Main.new(init_setting_file_name: 'setting_mexico.txt'))
 end
 

@@ -1,0 +1,10 @@
+alpha:0.00003
+beta:0.4485294118
+gamma:0.5514705882
+simulation_number:10950
+gradient:0.00002608697
+second_gradient:0.00002173913
+third_gradient:0.0000221739
+firststate:0
+fail_healthy_ratio:0.8
+fail_ill_ratio:0.65

@@ -11,8 +11,10 @@ class Elderly < Markov
     @alpha = alpha
     self.y = y
     self.current_state = first_state
-    self.q01 = q01 - y
-    self.q10 = q10 + y
+    self.q01 = q01.to_f
+    self.q01 = self.q01.to_f - y
+    self.q10 = q10
+    self.q10 = self.q10.to_f + y
     super(first_state)
   end
 
