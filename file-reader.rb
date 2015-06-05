@@ -1,5 +1,6 @@
 class SettingReader
   attr_reader :matched_list, :stored_hash
+  #与えられたファイルのキーワードをリストへ格納
   def initialize(file_name,keywords)
     @stored_hash=Hash.new
     f = open(file_name)
@@ -24,14 +25,10 @@ class SettingReader
               if component["number"] == nil
                 raise FileSettingError
               end
-              #p component["number"]
               @stored_hash[keyword] = component["number"]
            else
-             # raise error
         end
       end
-
     end
-
   end
 end

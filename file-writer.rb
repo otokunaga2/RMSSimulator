@@ -6,6 +6,8 @@ class OutputWriter
   include Singleton
   #対象ファイルに、ある特定メッセージを書き込む
   def write_to_file(target_file,msg)
+    tmp_dir = "output/"
+    target_to_dir_file = tmp_dir << target_file
     File.open(target_file, "a") do |f|
       begin
       f.write msg

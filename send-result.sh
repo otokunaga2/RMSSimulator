@@ -9,23 +9,22 @@
 #author tokunaga
 ######################################################
 
-if [ $# -eq 0 ]; then
-  echo '引数を入力してください'
-  exit 1
-fi
-
-if [ $# -eq 1 ]; then
-  echo 'ok'
-else
-  echo '引数の数が多すぎます。引数の数は1です。'
-  exit 1
-fi
 
 BASE_DIR=/home/tokunaga/RMSSimulator
-
 RESULT_DIR=${BASE_DIR}/output
-TEMP_DIR=${BASE_DIR}/output/$1
-mkdir ${TEMP_DIR}
-cd ${RESULT_DIR}
-mv *.txt ${TEMP_DIR}
+
+for x in mexico africa china ghana india russia
+  do
+    echo $x
+    TEMP_DIR=${BASE_DIR}/output/$x
+    echo ${TEMP_DIR}
+    cd ${TEMP_DIR}
+    mkdir ${TEMP_DIR}
+    mv ../*${x}*.txt ${TEMP_DIR}/
+  done
+#mkdir ${TEMP_DIR}
+#mv *russia*.txt ${TEMP_DIR}
+
+#正常終了
+exit 0
 

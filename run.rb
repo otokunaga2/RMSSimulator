@@ -15,6 +15,7 @@ class Main
 
   #設定ファイルから変数に格納するための初期化関数
   def init_property(setting_file_name: 'setting.txt')
+    #p setting_file_name
     target_word_list = %w[alpha beta gamma simulation_number 
                           gradient second_gradient third_gradient firststate
                           fail_ill_ratio fail_healthy_ratio]
@@ -52,7 +53,7 @@ class Main
     @elderly.aging(@time)
     @elderly.move_state()
     unless @elderly.current_state == nil
-      OutputWriter.instance.write_to_file(@current_target_file,"#{@elderly.current_state},#{judged_state}\n") 
+      OutputWriter.instance.write_to_file(@current_target_file,"#{@elderly.current_state},#{@elderly.q01},#{@elderly.q10}\n") 
     else
       p "高齢者の現在状態がありません！"
     end
