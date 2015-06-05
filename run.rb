@@ -16,20 +16,21 @@ class Main
   #設定ファイルから変数に格納するための初期化関数
   def init_property(setting_file_name: 'setting.txt')
     #p setting_file_name
-    target_word_list = %w[alpha beta gamma simulation_number 
+    target_word_list = %w[alpha q01 q10 y simulation_number 
                           gradient second_gradient third_gradient firststate
                           fail_ill_ratio fail_healthy_ratio]
     file_read_instance = SettingReader.new(setting_file_name,target_word_list)
     file_read_instance.store_to_hash
     alpha = file_read_instance.stored_hash["alpha"]
-    beta  = file_read_instance.stored_hash["beta"]
-    gamma = file_read_instance.stored_hash["gamma"]
+    y     = file_read_instance.stored_hash["y"]
+    q01   = file_read_instance.stored_hash["q01"]
+    q10   = file_read_instance.stored_hash["q10"]
     @simulation_number = file_read_instance.stored_hash["simulation_number"]
     gradient        = file_read_instance.stored_hash["gradient"]
     second_gradient = file_read_instance.stored_hash["second_gradient"]
     third_gradient  = file_read_instance.stored_hash["third_gradient"]
     firststate      = file_read_instance.stored_hash["firststate"]
-    @elderly = Elderly.new(alpha: alpha,beta: beta,gamma: gamma,
+    @elderly = Elderly.new(alpha: alpha, y: y, q01: q01, q10: q10,
                            simulation_number: @simulation_number,
                            gradient: gradient,second_gradient: second_gradient,
                            third_gradient: third_gradient,first_state: firststate)
