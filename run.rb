@@ -5,10 +5,11 @@ require './file-writer.rb'
 require './setting-error.rb'
 
 class Main
-  attr_accessor :time, :elderly, :simulation_number, :current_target_file, :output_writer
+  attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
   def initialize(init_setting_file_name: 'setting.txt')
     @time = 0
     @random_instance = Random.new(1)
+    #set_hash(fail_healthy_ratio,fail_ill_ratio)
     init_property(setting_file_name: init_setting_file_name)
   end
 
@@ -18,7 +19,6 @@ class Main
                           gradient second_gradient third_gradient firststate
                           fail_ill_ratio fail_healthy_ratio]
     file_read_instance = SettingReader.new(setting_file_name,target_word_list)
-
     file_read_instance.store_to_hash
     alpha = file_read_instance.stored_hash["alpha"]
     beta  = file_read_instance.stored_hash["beta"]
@@ -33,14 +33,9 @@ class Main
                            gradient: gradient,second_gradient: second_gradient,
                            third_gradient: third_gradient,first_state: firststate)
     fail_healthy_ratio= file_read_instance.stored_hash["fail_healthy_ratio"]
-    fail_ill_ratio    = file_read_instance.stored_hash["fail_ill_ratio"]
+    fail_ill_ratio = file_read_instance.stored_hash["fail_ill_ratio"]
     set_hash(fail_healthy_ratio,fail_ill_ratio)
-
-    @output_writer = OutputWriter.new
-    p @output_writer.to_s
-    #ファイルの読み込み先が変更されてしまうバグ
-    @current_target_file = @output_writer.create_file(prefix: setting_file_name)
-
+    @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
   end
 
   def set_hash(healthy,ill)

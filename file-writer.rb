@@ -1,7 +1,9 @@
 require 'fileutils'
-#require 'singleton'
+require 'singleton'
 
+#singletonクラスに設定
 class OutputWriter
+  include Singleton
   #対象ファイルに、ある特定メッセージを書き込む
   def write_to_file(target_file,msg)
     File.open(target_file, "a") do |f|
@@ -21,6 +23,7 @@ class OutputWriter
   #シミュレーション結果を格納するファイルを生成するメソッド
   #デフォルトで""を利用するように設定
   def create_file(prefix: "")
+    #p "debug #{ prefix}"
     now = Time.now.strftime("%Y-%m-%d-%S")
     file_name = prefix << get_random_val() << "#{now}.txt"
     set_to_dir_file = "output/" << file_name
