@@ -54,7 +54,7 @@ class Main
     @elderly.aging(@time)
     @elderly.move_state()
     unless @elderly.current_state == nil
-      OutputWriter.instance.write_to_file(@current_target_file,"#{@elderly.current_state},#{judged_state}")
+      OutputWriter.instance.write_to_file(@current_target_file,"#{@elderly.current_state},#{judged_state}\n")
     else
       p "高齢者の現在状態がありません！"
     end

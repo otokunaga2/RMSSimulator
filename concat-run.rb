@@ -4,7 +4,7 @@ require './run.rb'
 main_instance_list = []
 #シミュレーションを実行するインスタンスの生成
 for i in 1..1 do
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_russia.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_africa.txt'))
 end
 
 def exec_simulation(main_instance)
