@@ -5,6 +5,7 @@ require './file-writer.rb'
 require './setting-error.rb'
 
 class Main
+  SETTING_DIR='./conf/'
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
   def initialize(init_setting_file_name: 'setting.txt')
     @time = 0
@@ -19,7 +20,7 @@ class Main
     target_word_list = %w[alpha q01 q10 y simulation_number 
                           gradient second_gradient third_gradient firststate
                           fail_ill_ratio fail_healthy_ratio]
-    file_read_instance = SettingReader.new(setting_file_name,target_word_list)
+    file_read_instance = SettingReader.new(SETTING_DIR << setting_file_name,target_word_list)
     file_read_instance.store_to_hash
     alpha = file_read_instance.stored_hash["alpha"]
     y     = file_read_instance.stored_hash["y"]
