@@ -18,9 +18,8 @@ for x in mexico africa china ghana india russia
     echo $x
     TEMP_DIR=${BASE_DIR}/output/$x
     echo ${TEMP_DIR}
-    cd ${TEMP_DIR}
     mkdir ${TEMP_DIR}
-    mv ../*${x}*.txt ${TEMP_DIR}/
+    mv ./output/*${x}*.txt ${TEMP_DIR}/
   done
 #mkdir ${TEMP_DIR}
 #mv *russia*.txt ${TEMP_DIR}

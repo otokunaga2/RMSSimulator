@@ -3,7 +3,11 @@ class SettingReader
   #与えられたファイルのキーワードをリストへ格納
   def initialize(file_name,keywords)
     @stored_hash=Hash.new
-    f = open(file_name)
+    begin
+      f = open(file_name)
+    rescue => e
+      p "#{e}"
+    end
     @keywords = keywords
     @matched_list = []
     while line = f.gets 
