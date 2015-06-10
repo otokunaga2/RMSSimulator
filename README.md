@@ -10,7 +10,7 @@
 
 
 ##実行方法
-> $ git clone this repositry 
+> $ git clone git@github.com:otokunaga2/RMSSimulator.git
 
 > $ cd RMSSimulator 
 
