@@ -5,7 +5,9 @@
 
 
 ##動作確認環境
--Ruby 2.2.2p95
+- os:Arch Linux
+- ruby:Ruby 2.2.2p95
+
 
 ##実行方法
 > $ git clone this repositry 
