@@ -11,7 +11,9 @@
 
 ##実行方法
 > $ git clone this repositry 
+
 > $ cd RMSSimulator 
+
 > $ ruby concat-run.rb
 
 設定ファイル（setting.txt）は上のconcat-run.rbから読み込んでいます。
