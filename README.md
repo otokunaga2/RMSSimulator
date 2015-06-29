@@ -5,11 +5,15 @@
 
 
 ##動作確認環境
--Ruby 2.2.2p95
+- os:Arch Linux
+- ruby:Ruby 2.2.2p95
+
 
 ##実行方法
-> $ git clone this repositry 
+> $ git clone git@github.com:otokunaga2/RMSSimulator.git
+
 > $ cd RMSSimulator 
+
 > $ ruby concat-run.rb
 
 設定ファイル（setting.txt）は上のconcat-run.rbから読み込んでいます。
