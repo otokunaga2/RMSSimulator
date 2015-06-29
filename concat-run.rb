@@ -3,14 +3,13 @@ require './run.rb'
 #シミュレーションを実行するインスタンスを格納するためのリスト
 main_instance_list = []
 #シミュレーションを実行するインスタンスの生成
-for i in 1..1 do
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_africa.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_china.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_india.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_ghana.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_mexico.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_russia.txt'))
+for i in 1..100 do
   main_instance_list.push(Main.new(init_setting_file_name: 'setting_africa.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_india.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_ghana.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_mexico.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_russia.txt'))
 end
 
 def exec_simulation(main_instance)

@@ -1,13 +1,12 @@
 require 'fileutils'
 require 'singleton'
 
-#singletonクラスに設定
 class OutputWriter
   include Singleton
+  TMP_DIR = "output/"
   #対象ファイルに、ある特定メッセージを書き込む
   def write_to_file(target_file,msg)
-    tmp_dir = "output/"
-    target_to_dir_file = tmp_dir << target_file
+    target_to_dir_file = TMP_DIR + target_file
     File.open(target_file, "a") do |f|
       begin
       f.write msg
@@ -27,8 +26,8 @@ class OutputWriter
   def create_file(prefix: "")
     #p "debug #{ prefix}"
     now = Time.now.strftime("%Y-%m-%d-%S")
-    file_name = prefix << get_random_val() << "#{now}.txt"
-    set_to_dir_file = "output/" << file_name
+    file_name = prefix + get_random_val() + "#{now}.txt"
+    set_to_dir_file = "output/" + file_name
     begin
       FileUtils.touch(set_to_dir_file)
     rescue e
