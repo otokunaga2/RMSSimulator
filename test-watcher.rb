@@ -6,11 +6,14 @@ class TestWatcher < MiniTest::Test
   def setup
     @watcher = Watcher.new({:healthy => 0.6,:ill => 0.3})
   end
-  def test_judge
-    assert_equal @watcher.judge_state(0),0
+
+  #expect fail
+  def test_random_val
+    assert_nil @watcher.generate_random
   end
 
-  # teardown はあまり使わない
-  def teardown
+  def test_bar
+    assert_equal 0,0
   end
+
 end

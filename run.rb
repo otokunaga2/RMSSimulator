@@ -6,12 +6,13 @@ require './setting-error.rb'
 
 class Main
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
+
   def initialize(init_setting_file_name: 'setting.txt')
     @time = 0
     @random_instance = Random.new(1)
     #set_hash(fail_healthy_ratio,fail_ill_ratio)
-    init_property(setting_file_name: init_setting_file_name)
     @watcher_init_ratio_map = {}
+    init_property(setting_file_name: init_setting_file_name)
   end
 
   #設定ファイルから変数に格納するための初期化関数
@@ -37,17 +38,15 @@ class Main
                            third_gradient: third_gradient,first_state: firststate)
     fail_healthy_ratio= file_read_instance.stored_hash["fail_healthy_ratio"]
     fail_ill_ratio = file_read_instance.stored_hash["fail_ill_ratio"]
-    set_hash(fail_healthy_ratio,fail_ill_ratio)
+    @watcher_init_ratio_map = {:healthy => fail_healthy_ratio, :ill => fail_ill_ratio}
     @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
   end
 
-  def set_hash(healthy,ill)
-    @watcher_init_ratio_map = {:healthy => healthy, :ill => ill}
-  end
 
   #シミュレーション実行のメイン部分
   #ここで、高齢者の加齢 -> 加齢とともに病気になりやすくなるなどを表現
   def simulate
+    p @watcher_init_ratio_map
     @watcher = Watcher.new(@watcher_init_ratio_map)
     judged_state = @watcher.judge_state(@elderly.current_state)
     @time=@time+1
