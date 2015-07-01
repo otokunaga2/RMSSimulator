@@ -5,7 +5,7 @@ class Markov
   end
   def guard_parameter
     if @q01.to_f > 0.9999
-      @q01 = 0.9999
+      @q01 = 1
     end
     if @q10.to_f > 0.9999
       @q10 = 0.9999

@@ -15,11 +15,6 @@ class OutputWriter
       end
     end
   end
-  #ファイル名が重複しないように10文字のランダム文字列をファイル名に足すためのメソッド
-  private 
-    def get_random_val
-      (0...10).map{ ('A'..'Z').to_a[rand(26)] }.join 
-    end
   public
   #シミュレーション結果を格納するファイルを生成するメソッド
   #デフォルトで""を利用するように設定
@@ -36,4 +31,10 @@ class OutputWriter
     end
     set_to_dir_file
   end
+
+  #ファイル名が重複しないように10文字のランダム文字列をファイル名に足すためのメソッド
+  private 
+    def get_random_val
+      (0...10).map{ ('A'..'Z').to_a[rand(26)] }.join 
+    end
 end
