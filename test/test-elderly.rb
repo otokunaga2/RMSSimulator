@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/unit'
-require './elderly.rb'
+require '../elderly.rb'
 
 class ElderlyTest < MiniTest::Test
   def setup

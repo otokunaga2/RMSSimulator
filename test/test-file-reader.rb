@@ -1,4 +1,4 @@
-require './file-reader.rb'
+require '/home/tokunaga/work/RMSSimulator/file-reader.rb'
 require 'minitest/autorun'
 require 'minitest/unit'
 class TestFileReader < Minitest::Test

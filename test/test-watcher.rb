@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/unit'
-require './watcher.rb'
+require 'test-run.rb/watcher.rb'
 
 class TestWatcher < MiniTest::Test
   def setup

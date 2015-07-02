@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/unit'
-require './markov.rb'
+require '../markov.rb'
 
 
 class TestFoo < MiniTest::Test

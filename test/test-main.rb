@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/unit'
-require './main.rb'
+require '/home/tokunaga/work/RMSSimulator/main.rb'
 
 
 class TestFoo < MiniTest::Test
