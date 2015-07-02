@@ -20,7 +20,7 @@ class Elderly < Markov
   def set_gradient(time)
   end
   def aging(time)
-    temp_gradient = set_gradient(time)
+    temp_gradient = @gradient
     aging_param = RationalCalculator.instance.calc_aging_param(@aging_param,temp_gradient)
 
     temp_q01 = RationalCalculator.instance.convert_to_rational_number(self.q01)
