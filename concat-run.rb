@@ -4,12 +4,22 @@ require './run.rb'
 main_instance_list = []
 #シミュレーションを実行するインスタンスの生成
 for i in 1..100 do
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_africa.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_china.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_india.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_ghana.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_mexico.txt'))
-  #main_instance_list.push(Main.new(init_setting_file_name: 'setting_russia.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china2.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china3.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china4.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china5.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china6.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china7.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china8.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china9.txt'))
+#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_10.txt'))
+# main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_11.txt'))
+#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_12.txt'))
+#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_13.txt'))
+#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_14.txt'))
+#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_15.txt'))
+#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_16.txt'))
 end
 
 def exec_simulation(main_instance)
