@@ -2,24 +2,18 @@ require './run.rb'
 
 #シミュレーションを実行するインスタンスを格納するためのリスト
 main_instance_list = []
+COUNTRY_NAME="india"
 #シミュレーションを実行するインスタンスの生成
 for i in 1..100 do
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china2.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china3.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china4.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china5.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china6.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china7.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china8.txt'))
-  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china9.txt'))
-#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_10.txt'))
-# main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_11.txt'))
-#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_12.txt'))
-#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_13.txt'))
-#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_14.txt'))
-#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_15.txt'))
-#  main_instance_list.push(Main.new(init_setting_file_name: 'setting_china_16.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'1.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'2.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'3.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'4.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'5.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'6.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'7.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'8.txt'))
+  main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+COUNTRY_NAME+'9.txt'))
 end
 
 def exec_simulation(main_instance)
