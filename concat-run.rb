@@ -2,6 +2,9 @@ require './run.rb'
 
 #シミュレーションを実行するインスタンスを格納するためのリスト
 main_instance_list = []
+country_name_list = []
+country_name_list.push("india")
+country_name_list.push("india")
 COUNTRY_NAME="india"
 #シミュレーションを実行するインスタンスの生成
 for i in 1..100 do
