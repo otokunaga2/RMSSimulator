@@ -3,7 +3,7 @@ class Watcher
   HEALTHY_STATE=0
   ILL_STATE=1
   def initialize(healthy_failure_ratio: 0.1, ill_failure_ratio: 0.1)
-    @failure_ratio = {:healthy_failure_ratio => ratio_healthy_failure, :ill_failure_ratio => ratio_ill_failure}
+    @failure_ratio = {:healthy_failure_ratio => healthy_failure_ratio, :ill_failure_ratio => ill_failure_ratio}
   end
   
   def judge_state(state)
