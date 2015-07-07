@@ -4,8 +4,8 @@ declare -a country_list=("russia" "africa" "ghana" "mexico")
 #_のあとには、国名をあとでくっつける
 base_file_name="setting_"
 
-BEFORE_SETTING_HEALTY_RATIO=0.8
-BEFORE_SETTING_ILL_RATIO=0.65
+BEFORE_SETTING_HEALTY_RATIO=0.5
+BEFORE_SETTING_ILL_RATIO=0.85
 
 for temp_country in ${country_list[@]}; do 
   echo $temp_country
