@@ -1,8 +1,8 @@
-require '/home/tokunaga/work/RMSSimulator/elderly.rb'
-require '/home/tokunaga/work/RMSSimulator/watcher.rb'
-require '/home/tokunaga/work/RMSSimulator/file-reader.rb'
-require '/home/tokunaga/work/RMSSimulator/file-writer.rb'
-require '/home/tokunaga/work/RMSSimulator/setting-error.rb'
+require '/home/tokunaga/RMSSimulator/elderly.rb'
+require '/home/tokunaga/RMSSimulator/watcher.rb'
+require '/home/tokunaga/RMSSimulator/file-reader.rb'
+require '/home/tokunaga/RMSSimulator/file-writer.rb'
+require '/home/tokunaga/RMSSimulator/setting-error.rb'
 
 class Main
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name

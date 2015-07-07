@@ -1,0 +1,11 @@
+alpha:0.00003
+q01:0.1764705882
+q10:0.8235294118
+y:0.030471976
+simulation_number:10950
+gradient:0.666101695
+second_gradient:0.00002061072
+third_gradient:0.00004877865
+firststate:0
+fail_healthy_ratio:0.5
+fail_ill_ratio:0.5

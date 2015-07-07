@@ -10,7 +10,7 @@
 ######################################################
 
 
-BASE_DIR=/home/tokunaga/work/RMSSimulator
+BASE_DIR=/home/tokunaga/RMSSimulator
 RESULT_DIR=${BASE_DIR}/output
 
 for x in mexico africa china ghana india russia

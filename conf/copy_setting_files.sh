@@ -1,6 +1,6 @@
 #/bin/bash
 
-declare -a array=("russia" "africa" "ghana" "mexico")
+declare -a array=("china" "russia" "africa" "ghana" "mexico" "india")
 i=0
 for e in ${array[@]}; do
     #echo "array[$i] = ${e}"
