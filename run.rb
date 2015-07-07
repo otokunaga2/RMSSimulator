@@ -33,11 +33,12 @@ class Main
                            simulation_number: @simulation_number,
                            gradient: gradient,second_gradient: second_gradient,
                            third_gradient: third_gradient,first_state: firststate)
-    fail_healthy_ratio= file_read_instance.stored_hash["fail_healthy_ratio"]
-    fail_ill_ratio = file_read_instance.stored_hash["fail_ill_ratio"]
+    healthy_failure_ratio = file_read_instance.stored_hash["fail_healthy_ratio"]
+    ill_failure_ratio = file_read_instance.stored_hash["fail_ill_ratio"]
     @watcher_init_ratio_map = {:healthy => fail_healthy_ratio, :ill => fail_ill_ratio}
     @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
-    @watcher = Watcher.new(@watcher_init_ratio_map)
+    #@watcher = Watcher.new(@watcher_init_ratio_map)
+    @watcher = Watcher.new(healthy_failure_ratio: healthy_failure_ratio , ill_failure_ratio: ill_failure_ratio)
   end
 
 
