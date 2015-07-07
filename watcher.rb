@@ -1,24 +1,26 @@
 class Watcher
   attr_reader :fail_ratio,:rondom_value
-  def initialize(fail_ratio)
-    @fail_ratio = fail_ratio
+  HEALTHY_STATE=0
+  ILL_STATE=1
+  def initialize(ratio_healthy_failure: 0.1, ratio_ill_failure: 0.1)
+    @fail_ratio = {:ratio_healthy_failure => ratio_healthy_failure, :ratio_ill_failure => ratio_ill_failure}
   end
-
+  
   def judge_state(state)
     random=Random.rand
     judged_state = nil
     case state.to_i
-      when 0 then
-        if random.to_f < fail_ratio[:healthy].to_f
-          judged_state = 1
+      when HEALTHY_STATE then
+        if random.to_f < @fail_ratio[:ratio_healthy_failure].to_f
+          judged_state = ILL_STATE
         else
-          judged_state = 0
+          judged_state = HEALTHY_STATE
         end
-      when 1 then
-        if random.to_f < fail_ratio[:ill].to_f
-          judged_state =  0
+      when ILL_STATE then
+        if random.to_f < @fail_ratio[:ratio_ill_failure].to_f
+          judged_state = HEALTHY_STATE
         else
-          judged_state = 0
+          judged_state = ILL_STATE
         end
     end
     judged_state
