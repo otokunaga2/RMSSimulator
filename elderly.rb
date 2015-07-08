@@ -3,12 +3,9 @@ require '/home/tokunaga/RMSSimulator/singleton-calculator.rb'
 
 class Elderly < Markov
   attr_accessor :current_state, :y
-  def initialize(alpha: nil, y: nil, q01: nil, q10: nil,simulation_number: nil,gradient: nil,
-                 second_gradient: nil,third_gradient: nil,first_state: nil)
+  def initialize(alpha: nil, y: nil, q01: nil, q10: nil,simulation_number: nil,gradient: nil, first_state: nil)
     @simulation_number = simulation_number
     @gradient=gradient
-    @second_gradient = second_gradient
-    @third_gradient = third_gradient
     @aging_param=alpha
     self.y = y
     self.current_state = first_state

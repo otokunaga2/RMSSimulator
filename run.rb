@@ -26,13 +26,10 @@ class Main
     q10   = file_read_instance.stored_hash["q10"]
     @simulation_number = file_read_instance.stored_hash["simulation_number"]
     gradient        = file_read_instance.stored_hash["gradient"]
-    second_gradient = file_read_instance.stored_hash["second_gradient"]
-    third_gradient  = file_read_instance.stored_hash["third_gradient"]
     firststate      = file_read_instance.stored_hash["firststate"]
     @elderly = Elderly.new(alpha: alpha, y: y, q01: q01, q10: q10,
                            simulation_number: @simulation_number,
-                           gradient: gradient,second_gradient: second_gradient,
-                           third_gradient: third_gradient,first_state: firststate)
+                           gradient: gradient, first_state: firststate)
     healthy_failure_ratio = file_read_instance.stored_hash["fail_healthy_ratio"]
     ill_failure_ratio = file_read_instance.stored_hash["fail_ill_ratio"]
     @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
@@ -44,12 +41,14 @@ class Main
   #シミュレーション実行のメイン部分
   #ここで、高齢者の加齢 -> 加齢とともに病気になりやすくなるなどを表現
   def simulate
-    judged_state = @watcher.judge_state(@elderly.current_state)
 
-    #aging
+    #シミュレーションの高齢化を表す
     @time=@time+1
     @elderly.aging(@time)
     @elderly.move_state()
+
+    #
+    judged_state = @watcher.judge_state(@elderly.current_state)
     unless @elderly.current_state == nil
       OutputWriter.instance.write_to_file(@current_target_file,"#{judged_state},#{@elderly.current_state}\n")
     else
