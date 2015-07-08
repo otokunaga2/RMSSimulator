@@ -9,13 +9,13 @@ class ResultParser
   RESULT_PREFIX="result"
   SPECIFIC_COUNTRY_NAME=ARGV[0]
   CSV_FILE_FORMAT=".csv"
-  def initialize()
+  def initialize(country_name)
     @matched_list = []
     @number_true_positive = 0
     @number_true_negative = 0
     @number_false_positive = 0
     @number_false_negative = 0
-    @country_list = ["africa","india","china","russia","mexico","ghana"]
+    @target_country = nil
     @country_list.each do |country_name|
       @result_file_name = RESULT_PREFIX + country_name + CSV_FILE_FORMAT
       FileUtils.touch(@result_file_name)
@@ -28,7 +28,7 @@ class ResultParser
   end
 
   def specify_target_file_list(grep_str)
-    Find.find(".") do |dirname|
+    Find.find("./#{@target_country}") do |dirname|
       file_name = File.basename(dirname, "*")
       if File::ftype(file_name) == "directory"
         next
@@ -69,10 +69,10 @@ class ResultParser
     end
   end
 end
-result_instance = ResultParser.new
-result_instance.country_list.each do |coutnry_name|
-  p coutnry_name
+country_name =  "africa"
+result_instance = ResultParser.new(country_name)
+country_list = ["africa","india","china","russia","mexico","ghana"]
+country_list.each do |coutnry_name|
+  grep_file_str=/.*#{coutnry_name}.*.txt/
+  result_instance.specify_target_file_list(grep_file_str)
 end
-result_instance.specify_target_file_list
-#
-GREP_FILE_STR=/.*#{SPECIFIC_COUNTRY_NAME}.*.txt/
