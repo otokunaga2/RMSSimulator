@@ -1,9 +1,9 @@
 alpha:0.00003
-q01:0.5
-q10:0.5
-y:0.1
+q01:0.2823529412
+q10:0.7176470588
+y:0.026629794
 simulation_number:10950
-gradient:0.00002061072
+gradient:0.616610169
 second_gradient:0.00002061072
 third_gradient:0.00004877865
 firststate:0

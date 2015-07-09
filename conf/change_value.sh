@@ -1,6 +1,6 @@
 #/bin/bash
 
-declare -a country_list=("russia" "africa" "ghana" "mexico")
+declare -a country_list=("india" "china" "russia" "africa" "ghana" "mexico")
 #_のあとには、国名をあとでくっつける
 base_file_name="setting_"
 
