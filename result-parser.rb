@@ -54,9 +54,9 @@ class ResultParser
       elsif row[0].to_i == ILL && row[1].to_i == ILL
         @number_true_positive = @number_true_positive + 1      
       elsif row[0].to_i == ILL && row[1].to_i == HEALTHY
-        @number_false_positive = @number_false_positive + 1
-      elsif row[0].to_i == HEALTHY && row[1].to_i == ILL
         @number_false_negative = @number_false_negative + 1
+      elsif row[0].to_i == HEALTHY && row[1].to_i == ILL
+        @number_false_positive = @number_false_positive + 1
       end
     end
     result_string = concat_result()

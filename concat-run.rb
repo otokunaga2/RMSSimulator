@@ -4,15 +4,15 @@ require './run.rb'
 main_instance_list = []
 country_name_list = []
 country_name_list.push("india")
-country_name_list.push("mexico")
-country_name_list.push("ghana")
-country_name_list.push("russia")
+#country_name_list.push("mexico")
+#country_name_list.push("ghana")
+#country_name_list.push("russia")
 country_name_list.push("china")
-country_name_list.push("africa")
+#country_name_list.push("africa")
 COUNTRY_NAME="india"
 #シミュレーションを実行するインスタンスの生成
 country_name_list.each do | country_name|
-  for i in 1..100 do
+  for i in 1..10 do
     main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+country_name+'1.txt'))
     main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+country_name+'2.txt'))
     main_instance_list.push(Main.new(init_setting_file_name: 'setting_'+country_name+'3.txt'))

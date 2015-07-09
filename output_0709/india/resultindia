@@ -1,0 +1,9 @@
+true_positive:5941,true_negative:259,false_positive:4383,false_negative:367
+true_positive:11925,true_negative:497,false_positive:8714,false_negative:764
+true_positive:17893,true_negative:730,false_positive:13085,false_negative:1142
+true_positive:23895,true_negative:963,false_positive:17419,false_negative:1523
+true_positive:29854,true_negative:1206,false_positive:21791,false_negative:1899
+true_positive:35857,true_negative:1453,false_positive:26127,false_negative:2263
+true_positive:41826,true_negative:1736,false_positive:30446,false_negative:2642
+true_positive:47748,true_negative:1999,false_positive:34857,false_negative:2996
+true_positive:53716,true_negative:2248,false_positive:39174,false_negative:3412
