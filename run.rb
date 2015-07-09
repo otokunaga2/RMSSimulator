@@ -45,8 +45,7 @@ class Main
     #シミュレーションの高齢化を表す
     @time=@time+1
     @elderly.aging(@time)
-    @elderly.move_state()
-
+    @elderly.current_state = @elderly.move_state()
     #
     judged_state = @watcher.judge_state(@elderly.current_state)
     unless @elderly.current_state == nil

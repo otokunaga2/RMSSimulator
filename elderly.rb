@@ -22,7 +22,7 @@ class Elderly < Markov
 
     temp_q01 = RationalCalculator.instance.convert_to_rational_number(self.q01)
 
-    self.q01 = temp_q01.to_r + aging_param.to_r
+    self.q01 = temp_q01.to_r - aging_param.to_r
     self.guard_parameter
     temp_q10 = RationalCalculator.instance.convert_to_rational_number(self.q10)
     self.q10 = temp_q10.to_r - aging_param.to_r
