@@ -10,7 +10,7 @@ BEFORE_SETTING_HEALTY_RATIO=0.5
 BEFORE_SETTING_ILL_RATIO=0.85
 
 for temp_country in ${country_list[@]}; do 
-  for  i in {7000..10000}; do
+  for  i in {700..1000}; do
       mkdir -p $BASE_DIR$CONFIG_DIR"/"$temp_country
       target_copy_file_name=$BASE_DIR$CONFIG_DIR"/"$temp_country"/"$base_file_name${temp_country}"_ac_"$i.txt
       #echo $target_copy_file_name
