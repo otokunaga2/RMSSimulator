@@ -12,15 +12,15 @@ class Watcher
     case state.to_i
       when HEALTHY_STATE then
         if random.to_f < @failure_ratio[:healthy_failure_ratio].to_f
-          judged_state = ILL_STATE
-        else
           judged_state = HEALTHY_STATE
+        else
+          judged_state = ILL_STATE
         end
       when ILL_STATE then
         if random.to_f < @failure_ratio[:ill_failure_ratio].to_f
-          judged_state = HEALTHY_STATE
-        else
           judged_state = ILL_STATE
+        else
+          judged_state = HEALTHY_STATE
         end
     end
     judged_state
