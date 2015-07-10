@@ -22,13 +22,13 @@ class ResultParser
     @number_false_negative = 0
     @target_country_name = target_country_name + index_number.to_s
     @specific_dir_index = index_number
-    @result_file_name = RESULT_PREFIX + target_country_name + @specific_dir_index.to_s + OUTPUT_FILEFORMT 
-    FileUtils.touch(@result_file_name)
+    @result_file_base = RESULT_PREFIX + target_country_name + @specific_dir_index.to_s + "_"
+    FileUtils.touch(@result_file_base)
   end
 
   def init_simulation_parameters
-    @number_true_positive = 0
-    @number_true_negative = 0
+    @number_true_positive  = 0
+    @number_true_negative  = 0
     @number_false_positive = 0
     @number_false_negative = 0
   end
@@ -53,9 +53,20 @@ class ResultParser
       end
     end
   end
-
+  def write_result_file(result_file_name)
+    result_string = concat_result()
+    File.open(result_file_name, "a") do |f|
+      begin
+      f.write result_string
+      rescue => e
+        p "error has occured #{e}"
+      end
+    end
+  end
   def read_and_export_result(file_name)
+    line_number = 1
     CSV.foreach(file_name) do |row|
+      p line_number
       if row[0].to_i == HEALTHY && row[1].to_i == HEALTHY
         @number_true_negative = @number_true_negative + 1
       elsif row[0].to_i == ILL && row[1].to_i == ILL
@@ -65,21 +76,22 @@ class ResultParser
       elsif row[0].to_i == HEALTHY && row[1].to_i == ILL
         @number_false_negative = @number_false_negative + 1
       end
-    end
-    #結果を生成
-    result_string = concat_result()
-    File.open(@result_file_name, "a") do |f|
-      begin
-      f.write result_string
-      rescue => e
-        p "error has occured #{e}"
+      #もし一年が経過したら、ファイルに経過を書き込み
+      #集計カウンタをそれぞれリセットする
+      if line_number % 365 == 0
+        result_file = @result_file_base + line_number.to_s + "Y" + OUTPUT_FILEFORMT
+        write_result_file(result_file)
+        init_simulation_parameters
       end
+
+      line_number = line_number + 1
     end
   end
 end
-country_name_list=["india"]
+
+country_name_list=["mexico"]
 country_name_list.each do |current_country_name|
-  index_number=1
+  index_number=7001
   grep_file_str=/.*#{current_country_name}.*.txt/
   result_instance = ResultParser.new(current_country_name,index_number)
   result_instance.specify_target_file_list(grep_file_str,current_country_name)
