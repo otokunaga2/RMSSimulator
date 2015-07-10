@@ -4,9 +4,9 @@ require './run.rb'
 main_instance_list = []
 country_name_list = []
 country_name_list.push("india")
-#country_name_list.push("mexico")
-#country_name_list.push("ghana")
-#country_name_list.push("russia")
+country_name_list.push("mexico")
+country_name_list.push("ghana")
+country_name_list.push("russia")
 country_name_list.push("china")
 #country_name_list.push("africa")
 COUNTRY_NAME="india"

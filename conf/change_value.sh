@@ -16,3 +16,14 @@ for temp_country in ${country_list[@]}; do
       sed -i -e "s/ill_ratio:$BEFORE_SETTING_ILL_RATIO/ill_ratio:0.$ill_ratio_value/" $base_file_name$temp_country$i.txt
   done;
 done;
+
+function inc_sensor_accuracy(){
+	accuracy=0.70
+	while [ ${accuracy} -le 1 ]
+	do
+		echo $accuracy
+		accuracy=expr '${accuracy} + 1'
+	done
+			
+}
+inc_sensor_accuracy
