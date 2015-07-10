@@ -66,15 +66,14 @@ class ResultParser
   def read_and_export_result(file_name)
     line_number = 1
     CSV.foreach(file_name) do |row|
-      p line_number
       if row[0].to_i == HEALTHY && row[1].to_i == HEALTHY
         @number_true_negative = @number_true_negative + 1
-      elsif row[0].to_i == ILL && row[1].to_i == ILL
-        @number_true_positive = @number_true_positive + 1      
       elsif row[0].to_i == ILL && row[1].to_i == HEALTHY
         @number_false_positive = @number_false_positive + 1
       elsif row[0].to_i == HEALTHY && row[1].to_i == ILL
         @number_false_negative = @number_false_negative + 1
+      elsif row[0].to_i == ILL && row[1].to_i == ILL
+        @number_true_positive = @number_true_positive + 1      
       end
       #もし一年が経過したら、ファイルに経過を書き込み
       #集計カウンタをそれぞれリセットする
@@ -91,7 +90,7 @@ end
 
 country_name_list=["mexico"]
 country_name_list.each do |current_country_name|
-  index_number=7001
+  index_number=7003
   grep_file_str=/.*#{current_country_name}.*.txt/
   result_instance = ResultParser.new(current_country_name,index_number)
   result_instance.specify_target_file_list(grep_file_str,current_country_name)
