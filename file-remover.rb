@@ -8,7 +8,7 @@ country_list.each do |country_name|
   while i < 1000
     target_dir = TEMP_DIR + country_name + "/" + i.to_s
     grep_file_name= "./test/*" + country_name + "*#{i}"
-    File.rename(grep_file_name, target_dir)
+    FileUtils.mv(grep_file_name, target_dir)
     i = i + 1
   end
 end

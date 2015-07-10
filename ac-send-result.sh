@@ -40,7 +40,9 @@ do
       TEMP_DIR=${BASE_DIR}/test/sensor/$x
       echo ${TEMP_DIR}
       #別のディレクトリへ対象ファイルを移動
-      mv ${BASE_DIR}/test/*${x}*_${j}.txt ${BASE_DIR}/test/hoge
+      #ワイルドカードを指定するときにはエスケープが必要
+      ls  ${BASE_DIR}/test/\*${j}\*.txt
+      #mv ${BASE_DIR}/test/${x}\*${j}.txt ${BASE_DIR}/test/sensor/${x}/${j}
     done
   j=`expr $j + 1`
 done

@@ -5,11 +5,12 @@ require 'find'
 #TODO ファイル名（設定名ごとに分けて修正するように変更)
 #
 class FileMover
+
   def initialize
   end
 
-  def specify_target_file_list(grep_str,target_country_name,specific_dir_index)
 
+  def specify_target_file_list(grep_str,target_country_name,specific_dir_index)
     Find.find("./#{target_country_name}/#{specific_dir_index}") do |dirname|
       file_name = File.basename(dirname, "*")
       begin
@@ -18,15 +19,11 @@ class FileMover
         #do nothing
       end
       if file_name =~ grep_str
-         FileUtils.mv("./#{target_country_name}/#{specific_dir_index}/#{file_name}","/home/tokunaga/RMSSimulator/test/sample/")
+        p file_name         
       end
     end
 
   end
 end
 file_mover = FileMover.new
-i = 70
-while i <= 100 do
-  file_mover.specify_target_file_list(/*.ac_*#{i}.txt/,"india",i)
-  i = i + 1
-end
+file_mover.specify_target_file_list("90.txt","ghana",1)
