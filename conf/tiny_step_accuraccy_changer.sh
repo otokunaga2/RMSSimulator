@@ -13,11 +13,11 @@ for temp_country in ${country_list[@]}; do
   for  i in {7000..10000}; do
       mkdir -p $BASE_DIR$CONFIG_DIR"/"$temp_country
       target_copy_file_name=$BASE_DIR$CONFIG_DIR"/"$temp_country"/"$base_file_name${temp_country}"_ac_"$i.txt
-      echo $target_copy_file_name
+      #echo $target_copy_file_name
       cp $BASE_DIR$CONFIG_DIR"/"setting_${temp_country}.txt $target_copy_file_name
       #ill_ratio_value=`expr 10 - $i`
       sed -i -e "s/healthy_ratio:$BEFORE_SETTING_HEALTY_RATIO/healthy_ratio:0.$i/" $target_copy_file_name
-      sed -i -e "s/ill_ratio:$BEFORE_SETTING_ILL_RATIO/ill_ratio:0.$ill_ratio_value/" $target_copy_file_name
+      sed -i -e "s/ill_ratio:$BEFORE_SETTING_ILL_RATIO/ill_ratio:0.$i/" $target_copy_file_name
   done;
 done;
 ##function make_dir_with_step(){

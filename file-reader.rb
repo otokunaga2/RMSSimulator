@@ -1,12 +1,12 @@
 class SettingReader
-  DIR_PREFIX = './conf/'
+  #DIR_PREFIX = './conf/'
   attr_reader :matched_list, :stored_hash
   #与えられたファイルのキーワードをリストへ格納
   def initialize(file_name,keywords)
     @stored_hash=Hash.new
+    p "file-name #{file_name}"
     begin
-      fullpath = DIR_PREFIX + file_name
-      f = open(fullpath)
+      f = open(file_name)
     rescue => e
       p "#{e}"
     end

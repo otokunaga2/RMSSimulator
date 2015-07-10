@@ -6,15 +6,17 @@ require '/home/tokunaga/RMSSimulator/setting-error.rb'
 
 class Main
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
-  def initialize(init_setting_file_name: 'setting.txt')
+  BASE_DIR="/home/tokunaga/RMSSimulator/output"
+  def initialize(init_setting_file_name: 'setting.txt', target_country: '')
     @time = 0
     @random_instance = Random.new(1)
     @watcher_init_ratio_map = {}
-    init_property(setting_file_name: init_setting_file_name)
+    @current_target_country= target_country
+    init_property(setting_file_name: init_setting_file_name, target_country: target_country)
   end
 
   #設定ファイルから変数に格納するための初期化関数
-  def init_property(setting_file_name: 'setting.txt')
+  def init_property(setting_file_name: 'setting.txt', target_country: '')
     target_word_list = %w[alpha q01 q10 y simulation_number 
                           gradient second_gradient third_gradient firststate
                           fail_ill_ratio fail_healthy_ratio]
@@ -32,7 +34,9 @@ class Main
                            gradient: gradient, first_state: firststate)
     healthy_failure_ratio = file_read_instance.stored_hash["fail_healthy_ratio"]
     ill_failure_ratio = file_read_instance.stored_hash["fail_ill_ratio"]
-    @current_target_file = OutputWriter.instance.create_file(prefix: setting_file_name)
+    output_file_dir=BASE_DIR + "/" + @current_target_country + "/"
+    base_file_name = File.basename(setting_file_name, ".txt")
+    @current_target_file = OutputWriter.instance.create_file(setting_file_name: base_file_name,output_dir_prefix: output_file_dir,target_country: @current_target_country)
     #@watcher = Watcher.new(@watcher_init_ratio_map)
     @watcher = Watcher.new(healthy_failure_ratio: healthy_failure_ratio , ill_failure_ratio: ill_failure_ratio)
   end
@@ -49,7 +53,7 @@ class Main
     #
     judged_state = @watcher.judge_state(@elderly.current_state)
     unless @elderly.current_state == nil
-      OutputWriter.instance.write_to_file(@current_target_file,"#{judged_state},#{@elderly.current_state}\n")
+      OutputWriter.instance.write_to_file(@current_target_file,@current_target_country,"#{judged_state},#{@elderly.current_state}\n")
     else
       p "高齢者の現在状態がありません！"
       raise ElerlyElderlyStateNotFoundError 

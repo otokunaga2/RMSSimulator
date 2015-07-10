@@ -3,10 +3,9 @@ require 'singleton'
 
 class OutputWriter
   include Singleton
-  TMP_DIR = "output/"
   #対象ファイルに、ある特定メッセージを書き込む
-  def write_to_file(target_file,msg)
-    target_to_dir_file = TMP_DIR + target_file
+  def write_to_file(target_file,target_country,msg)
+    target_to_dir_file = target_country +target_file
     File.open(target_file, "a") do |f|
       begin
       f.write msg
@@ -18,18 +17,18 @@ class OutputWriter
   public
   #シミュレーション結果を格納するファイルを生成するメソッド
   #デフォルトで""を利用するように設定
-  def create_file(prefix: "")
+  def create_file(setting_file_name: "",output_dir_prefix: "",target_country: "")
     #p "debug #{ prefix}"
     now = Time.now.strftime("%Y-%m-%d-%S")
-    file_name = prefix + get_random_val() + "#{now}.txt"
-    set_to_dir_file = "output/" + file_name
+    file_name = output_dir_prefix + setting_file_name + get_random_val() + "#{now}.txt"
+    #p "DEBUG: #{set_to_dir_file}"
     begin
-      FileUtils.touch(set_to_dir_file)
-    rescue e
+      FileUtils.touch(file_name)
+    rescue => e
       p "#{e},ファイルを作成することに失敗しました"
       raise Error
     end
-    set_to_dir_file
+    file_name
   end
 
   #ファイル名が重複しないように10文字のランダム文字列をファイル名に足すためのメソッド
