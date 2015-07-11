@@ -7,11 +7,18 @@
 ##動作確認環境
 - os:Arch Linux
 - ruby:Ruby 2.2.2p95
+
 ##設定ファイルの作成方法
 tiny_step_accuracy_changer.shを実行することで、センサ精度を0.0001ずつ変化させた設定ファイルが
 conf/india/に生成されます。
-##ファイルの集計について
--> 引数に値を与えると、その指定した各年ごとに集計を行います。
+
+## 集計方法
+シミュレーションを実行したのちに、以下の手順で集計結果を生成することが出来ます。
+
+> ~/RMSSimulator/output/calc/
+> ruby file-mover.rb
+> cd result
+> ruby result-parser.rb
 
 
 ##実行方法
