@@ -15,9 +15,12 @@ conf/india/に生成されます。
 ## 集計方法
 シミュレーションを実行したのちに、以下の手順で集計結果を生成することが出来ます。
 
-> ~/RMSSimulator/output/calc/
+>cd  ~/RMSSimulator/output/calc/
+
 > ruby file-mover.rb
+
 > cd result
+
 > ruby result-parser.rb
 
 
