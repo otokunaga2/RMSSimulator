@@ -1,5 +1,6 @@
 #!/bin/sh
 
+rm -rf india china russia africa ghana mexico
 declare -a country_list=("india" "china" "russia" "africa" "ghana" "mexico")
 BASE_DIR=/home/tokunaga/RMSSimulator/output
 for temp_country in ${country_list[@]}; do 
