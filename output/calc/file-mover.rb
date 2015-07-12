@@ -34,18 +34,24 @@ file_mover = FileMover.new
 DIR_HOME_PATH= "/home/tokunaga/RMSSimulator/output/calc"
 OUTPUT_PATH= "/home/tokunaga/RMSSimulator/output/calc/result"
 #country_list = ["africa","china","ghana","mexico", "india","russia"]
-country_list = ["india"]
+country_list = ["india","china"]
 
 country_list.each do |country_name|
+	country_result_path = OUTPUT_PATH + country_name
+	begin
+	Dir.mkdir(country_result_path)
+	rescue => e
+	end
+end
+country_list.each do |country_name|
   for i in 700..1000 do
-    temp_path= DIR_HOME_PATH + "/" + country_name + "/" 
+    temp_path= OUTPUT_PATH + "/" + country_name + "/" 
     #p temp_path
     dir_full_path = temp_path + i.to_s + "/"
-    #p "full path :#{dir_full_path}"
+    p "full path :#{dir_full_path}"
     begin
       Dir.mkdir(dir_full_path)
     rescue => e
-      p "もうあるよ"
     end
   end
 end
@@ -55,7 +61,11 @@ country_list.each do |country_name|
     temp_target_dir_path = ""
     dir_number=i
     temp_target_dir_path =  OUTPUT_PATH + "/" + country_name + "/" + dir_number.to_s
+    begin
     file_mover.specify_target_file_list(temp_target_dir_path,/#{dir_number}/,country_name.to_s,i)
+    rescue => e
+	p "error has occured #{e}"
+    end
 
   end
 end
