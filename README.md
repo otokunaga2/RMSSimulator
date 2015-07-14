@@ -19,6 +19,9 @@ conf/india/に生成されます。
 
 > ruby file-mover.rb
 
+> 注意！）この時↑で指定した出力先の対象ファイルがあるかは要確認です．
+
+
 > cd result
 
 > ruby result-parser.rb
@@ -31,8 +34,7 @@ conf/india/に生成されます。
 
 > $ ruby concat-run.rb
 
-設定ファイル（setting.txt）は上のconcat-run.rbから読み込んでいます。
-パラメータの修正などは上記ファイルを編集する必要があります。
+### 設定ファイル（setting.txt）は上のconcat-run.rbから読み込んでいます。パラメータの修正などは上記ファイルを編集する必要があります。
 
 
 ##参考文献
