@@ -3,7 +3,7 @@ require 'minitest/unit'
 require '../markov.rb'
 
 
-class TestFoo < MiniTest::Test
+class MarkovTest < MiniTest::Test
   def setup
     @markov = Markov.new(0,0.1,0.24,0)
 
