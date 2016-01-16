@@ -9,6 +9,7 @@
 - ruby:Ruby 2.2.2p95
 
 ##設定ファイルの書き方
+``` 
  執筆した論文ではWHOのデータをもとに初期値などの設定を行いました
  conf/国名.txt
  
@@ -23,7 +24,7 @@
  firststate:0           /*初期状態*/
  fail_healthy_ratio:0.5 /*センサが初期状態で実施する確率*/
  fail_ill_ratio:0.85
-
+```
 
 ##設定ファイルの作成方法
 tiny_step_accuracy_changer.shを実行することで、センサ精度を0.0001ずつ変化させた設定ファイルが
@@ -54,7 +55,8 @@ conf/india/に生成されます。
 
 > $ ruby concat-run.rb
 
-### 設定ファイル（setting.txt）は上のconcat-run.rbから読み込んでいます。パラメータの修正などは上記ファイルを編集する必要があります。
+- 実行時の注意事項
+設定ファイル（setting.txt）は上のconcat-run.rbから読み込んでいます。パラメータの修正などは上記ファイルを編集する必要があります。
 
 
 ##参考文献
