@@ -19,8 +19,8 @@
  y:0.033023599       /* */
  simulation_number:10950 /*シミュレーション実行回数*/
  gradient:0.701694915    /*初年度の病気にかかる係数*/
- second_gradient:0.00002061072 /*シミュレーション実行回数*/
- third_gradient:0.00004877865  /*シミュレーション実行回数*/
+ second_gradient:0.00002061072 /*次年度の病気にかかる係数*/
+ third_gradient:0.00004877865  /*最終年度の病気にかかる係数*/
  firststate:0           /*初期状態*/
  fail_healthy_ratio:0.5 /*センサが初期状態で実施する確率*/
  fail_ill_ratio:0.85

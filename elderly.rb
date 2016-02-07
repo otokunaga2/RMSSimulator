@@ -1,5 +1,5 @@
-require '/home/tokunaga/RMSSimulator/markov.rb'
-require '/home/tokunaga/RMSSimulator/singleton-calculator.rb'
+require './markov.rb'
+require './singleton-calculator.rb'
 
 class Elderly < Markov
   attr_accessor :current_state, :y

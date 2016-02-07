@@ -1,12 +1,12 @@
-require '/home/tokunaga/RMSSimulator/elderly.rb'
-require '/home/tokunaga/RMSSimulator/watcher.rb'
-require '/home/tokunaga/RMSSimulator/file-reader.rb'
-require '/home/tokunaga/RMSSimulator/file-writer.rb'
-require '/home/tokunaga/RMSSimulator/setting-error.rb'
+require './elderly.rb'
+require './watcher.rb'
+require './file-reader.rb'
+require './file-writer.rb'
+require './setting-error.rb'
 
 class Main
   attr_accessor :time, :elderly, :simulation_number, :current_target_file, :setting_file_name
-  BASE_DIR="/home/tokunaga/RMSSimulator/output"
+  BASE_DIR="./output"
   def initialize(init_setting_file_name: 'setting.txt', target_country: '')
     @time = 0
     @random_instance = Random.new(1)

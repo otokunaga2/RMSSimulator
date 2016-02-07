@@ -46,8 +46,6 @@ do
     done
   j=`expr $j + 1`
 done
-#mkdir ${TEMP_DIR}
-#mv *russia*.txt ${TEMP_DIR}
 
 #正常終了
 exit 0
